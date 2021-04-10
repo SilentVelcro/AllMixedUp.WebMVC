@@ -60,12 +60,22 @@
     <Compile Include="Ingredient.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="Message.cs" />
+    <Compile Include="Migrations\202104102227285_InitialMigration.cs" />
+    <Compile Include="Migrations\202104102227285_InitialMigration.Designer.cs">
+      <DependentUpon>202104102227285_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202104102227285_InitialMigration.resx">
+      <DependentUpon>202104102227285_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

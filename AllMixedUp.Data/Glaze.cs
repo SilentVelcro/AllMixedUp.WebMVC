@@ -20,10 +20,15 @@ namespace AllMixedUp.Data
         public bool FoodSafe { get; set; }
         [Required]
         public int FinishID { get; set; }
-        //public enum FireProcess
-        //{
-
-        //}
+        public enum FireProcess
+        {
+            Reduction = 1,
+            Oxidation = 2,
+            Wood = 3,
+            Pit = 4,
+            SaltSoda = 5,
+            Raku = 6,
+        }
 
         //public enum MinCone
         //{

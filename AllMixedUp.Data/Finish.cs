@@ -9,5 +9,15 @@ namespace AllMixedUp.Data
 {
     public class Finish
     {
+        [Key]
+        public int FinishID { get; set; }
+        //public enum Surface
+        //{
+
+        //}
+        //public enum Opacity
+        //{
+
+        //}
     }
 }

@@ -16,7 +16,9 @@ namespace AllMixedUp.Data
         public string GlazeName { get; set; }
         public DateTimeOffset CreatedRecipeDate { get; set; }
         public string Description { get; set; }
+        [Required]
         public bool FoodSafe { get; set; }
+        [Required]
         public int FinishID { get; set; }
         //public enum FireProcess
         //{

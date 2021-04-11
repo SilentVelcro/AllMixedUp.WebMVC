@@ -9,5 +9,13 @@ namespace AllMixedUp.Data
 {
     public class Message
     {
+        [Key]
+        public int MessageID { get; set; }
+        public int FromID { get; set; }
+        public int ToID { get; set; }
+
+        [Required]
+        public string Body { get; set; }
+        public DateTimeOffset CreatedDate { get; set; }
     }
 }

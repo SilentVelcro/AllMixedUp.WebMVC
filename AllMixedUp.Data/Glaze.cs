@@ -113,9 +113,16 @@ namespace AllMixedUp.Data
         }
         public MaxCone MaximumCone { get; set; }
 
-        //public enum MainColor
-        //{
-
-        //}
+        public enum MainColor
+        {
+            Green = 1,
+            Blue = 2,
+            Purple = 3,
+            Red = 4,
+            Orange = 5,
+            Yellow = 6,
+            White = 7,
+            Black,
+        }
     }
 }

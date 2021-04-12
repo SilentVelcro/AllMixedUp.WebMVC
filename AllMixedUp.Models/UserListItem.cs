@@ -5,31 +5,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AllMixedUp.Data
+namespace AllMixedUp.Models
 {
-    public class User
+    public class UserListItem
     {
-        [Key]
+        [Display(Name = "ID")]
         public int UserId { get; set; }
 
-        [Required]
-        public string FirstName { get; set; }
+        [Display(Name = "User")]
+        public string UserName { get; set; }
 
-        [Required]
-        public string LastName { get; set; }
-
-        [Required]
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
-        //[Required]
-        //public string Password { get; set; }
-
-        [Required]
+        [Display(Name = "Country")]
         public string Country { get; set; }
 
-        [Required]
+        [Display(Name = "State")]
         public string State { get; set; }
 
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedDate { get; set; }
     }
-} 
+}

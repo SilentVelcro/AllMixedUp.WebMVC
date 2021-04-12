@@ -7,13 +7,13 @@ namespace AllMixedUp.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class InitialMigration : IMigrationMetadata
+    public sealed partial class datacreated : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(datacreated));
         
         string IMigrationMetadata.Id
         {
-            get { return "202104102227285_InitialMigration"; }
+            get { return "202104121440268_.data created"; }
         }
         
         string IMigrationMetadata.Source

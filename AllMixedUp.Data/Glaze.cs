@@ -31,6 +31,8 @@ namespace AllMixedUp.Data
         public int FinishID { get; set; }
         public virtual Finish Finish { get; set; }
 
+
+        //Enum(s)
         public enum FireProcess
         {
             Reduction = 1,
@@ -135,6 +137,6 @@ namespace AllMixedUp.Data
             White = 7,
             Black = 8,
         }
-        public MainColor ColorMain { get; set; }
+        public MainColor Hue { get; set; }
     }
 }

@@ -10,7 +10,10 @@ namespace AllMixedUp.Data
     public class User
     {
         [Key]
-        public int UserId { get; set; }
+        public int UserID { get; set; }
+
+        [Required]
+        public Guid OwnerId { get; set; }
 
         [Required]
         public string FirstName { get; set; }
@@ -22,13 +25,10 @@ namespace AllMixedUp.Data
         public string Email { get; set; }
 
         //[Required]
-        //public string Password { get; set; }
+        //public string Country { get; set; }
 
-        [Required]
-        public string Country { get; set; }
-
-        [Required]
-        public string State { get; set; }
+        //[Required]
+        //public string State { get; set; }
 
         public DateTimeOffset CreatedDate { get; set; }
     }

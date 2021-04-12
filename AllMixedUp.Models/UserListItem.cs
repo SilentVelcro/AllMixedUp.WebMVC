@@ -10,7 +10,7 @@ namespace AllMixedUp.Models
     public class UserListItem
     {
         [Display(Name = "ID")]
-        public int UserId { get; set; }
+        public int UserID { get; set; }
 
         [Display(Name = "User")]
         public string UserName { get; set; }
@@ -18,13 +18,14 @@ namespace AllMixedUp.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Display(Name = "Country")]
-        public string Country { get; set; }
-
-        [Display(Name = "State")]
-        public string State { get; set; }
-
         [Display(Name = "Created")]
         public DateTimeOffset CreatedDate { get; set; }
+
+        //Future Verson
+        ////[Display(Name = "Country")]
+        ////public string Country { get; set; }
+
+        ////[Display(Name = "State")]
+        ////public string State { get; set; }
     }
 }

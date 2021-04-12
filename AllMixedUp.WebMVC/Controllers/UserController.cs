@@ -1,4 +1,6 @@
 ﻿using AllMixedUp.Models;
+using AllMixedUp.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,9 @@ namespace AllMixedUp.WebMVC.Controllers
         // GET: User
         public ActionResult Index()
         {
-            var model = new UserListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new UserService(userId);
+            var model = service.GetUser();
             return View(model);
         }
 
@@ -27,11 +31,17 @@ namespace AllMixedUp.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(UserCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new UserService(userId);
+
+            service.CreateUser(model);
+
+            return RedirectToAction("Index");
         }
     }
 }

@@ -64,6 +64,14 @@
     <Compile Include="Migrations\202104121440268_.data created.Designer.cs">
       <DependentUpon>202104121440268_.data created.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104121639487_UserCreae.cs" />
+    <Compile Include="Migrations\202104121639487_UserCreae.Designer.cs">
+      <DependentUpon>202104121639487_UserCreae.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104121702470_RAHAHAHAAAAA.cs" />
+    <Compile Include="Migrations\202104121702470_RAHAHAHAAAAA.Designer.cs">
+      <DependentUpon>202104121702470_RAHAHAHAAAAA.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
@@ -75,6 +83,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202104121440268_.data created.resx">
       <DependentUpon>202104121440268_.data created.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104121639487_UserCreae.resx">
+      <DependentUpon>202104121639487_UserCreae.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104121702470_RAHAHAHAAAAA.resx">
+      <DependentUpon>202104121702470_RAHAHAHAAAAA.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AllMixedUp.Models
 {
-    public class UserDetail
+    public class UserEdit
     {
         [Display(Name = "ID")]
         public int UserID { get; set; }

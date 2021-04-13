@@ -47,12 +47,25 @@ namespace AllMixedUp.WebMVC.Controllers
             return View(model);
         }
 
-        //Details
+        //Detail
         public ActionResult Details(int id)
         {
             var svc = CreateUserService();
             var model = svc.GetUserById(id);
 
+            return View(model);
+        }
+        public ActionResult Edit(int id)
+        {
+            var service = CreateUserService();
+            var detail = service.GetUserById(id);
+            var model =
+                new UserEdit
+                {
+                    FirstName = detail.FirstName,
+                    LastName = detail.LastName,
+                    Email = detail.Email,
+                };
             return View(model);
         }
 

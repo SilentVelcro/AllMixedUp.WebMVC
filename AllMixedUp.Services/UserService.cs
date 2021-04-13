@@ -80,5 +80,24 @@ namespace AllMixedUp.Services
                     };
             }
         }
+
+        //UPDATE
+        public bool UpdateUser(UserEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .User
+                        .Single(e => e.UserID == model.UserID && e.OwnerId == _userId);
+
+                entity.FirstName = model.FirstName;
+                entity.LastName = model.LastName;
+                entity.Email = model.Email;
+                entity.ModifiedDate = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

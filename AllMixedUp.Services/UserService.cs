@@ -16,7 +16,7 @@ namespace AllMixedUp.Services
             _userId = userId;
         }
 
-        //CREATE
+        //CREATE method
         public bool CreateUser(UserCreate model)
         {
             var entity =
@@ -35,6 +35,8 @@ namespace AllMixedUp.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        //ADD Method
         public IEnumerable<UserListItem> GetUser()
         {
             using (var ctx = new ApplicationDbContext())
@@ -55,6 +57,27 @@ namespace AllMixedUp.Services
                         );
 
                 return query.ToArray();
+            }
+        }
+
+        //Detail
+        public UserDetail GetUserById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .User
+                        .Single(e => e.UserID == id && e.OwnerId == _userId);
+                return
+                    new UserDetail
+                    {
+                        UserID = entity.UserID,
+                        UserName = entity.FirstName + " " + entity.LastName,
+                        Email = entity.Email,
+                        CreatedDate = entity.CreatedDate,
+                        ModifiedDate = entity.ModifiedDate
+                    };
             }
         }
     }

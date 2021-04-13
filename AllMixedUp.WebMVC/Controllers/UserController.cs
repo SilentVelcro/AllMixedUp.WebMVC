@@ -27,21 +27,41 @@ namespace AllMixedUp.WebMVC.Controllers
             return View();
         }
 
+        //CREATE POST
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(UserCreate model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            if (!ModelState.IsValid) return View(model);
 
+            var service = CreateUserService();
+
+            if (service.CreateUser(model))
+            {
+                TempData["SaveResult"] = "Your User was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "User could not be created.");
+
+            return View(model);
+        }
+
+        //Details
+        public ActionResult Details(int id)
+        {
+            var svc = CreateUserService();
+            var model = svc.GetUserById(id);
+
+            return View(model);
+        }
+
+        //HELPER METHOD
+        private UserService CreateUserService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new UserService(userId);
-
-            service.CreateUser(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }

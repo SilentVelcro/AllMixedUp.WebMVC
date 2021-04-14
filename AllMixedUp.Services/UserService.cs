@@ -23,6 +23,7 @@ namespace AllMixedUp.Services
                 new User()
                 {
                     OwnerId = _userId,
+                    UserID = model.UserID,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Email = model.Email,
@@ -60,7 +61,7 @@ namespace AllMixedUp.Services
             }
         }
 
-        //Detail
+        //Detail 
         public UserDetail GetUserById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -73,7 +74,8 @@ namespace AllMixedUp.Services
                     new UserDetail
                     {
                         UserID = entity.UserID,
-                        UserName = entity.FirstName + " " + entity.LastName,
+                        FirstName = entity.FirstName,
+                        LastName = entity.LastName,
                         Email = entity.Email,
                         CreatedDate = entity.CreatedDate,
                         ModifiedDate = entity.ModifiedDate
@@ -95,6 +97,22 @@ namespace AllMixedUp.Services
                 entity.LastName = model.LastName;
                 entity.Email = model.Email;
                 entity.ModifiedDate = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        //DELETE
+        public bool DeleteUser(int noteId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .User
+                        .Single(e => e.UserID == noteId && e.OwnerId == _userId);
+
+                ctx.User.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

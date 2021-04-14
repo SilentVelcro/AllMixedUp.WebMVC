@@ -10,6 +10,9 @@ namespace AllMixedUp.Models
     public class UserCreate
     {
         [Required]
+        public int UserID { get; set; }
+
+        [Required]
         public string FirstName { get; set; }
 
         [Required]

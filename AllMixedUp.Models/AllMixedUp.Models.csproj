@@ -54,6 +54,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FinishCreate.cs" />
+    <Compile Include="FinishDetail.cs" />
+    <Compile Include="FinishEdit.cs" />
+    <Compile Include="FinishListItem.cs" />
+    <Compile Include="GlazeCreate.cs" />
+    <Compile Include="GlazeDetail.cs" />
+    <Compile Include="GlazeEdit.cs" />
+    <Compile Include="GlazeListItem.cs" />
+    <Compile Include="IngredientCreate.cs" />
+    <Compile Include="IngredientDetail.cs" />
+    <Compile Include="IngredientEdit.cs" />
+    <Compile Include="IngredientListItem.cs" />
+    <Compile Include="MaterialCreate.cs" />
+    <Compile Include="MaterialDetail.cs" />
+    <Compile Include="MaterialEdit.cs" />
+    <Compile Include="MaterialListItem.cs" />
+    <Compile Include="MessageCreate.cs" />
+    <Compile Include="MessageDetail.cs" />
+    <Compile Include="MessageEdit.cs" />
+    <Compile Include="MessageListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserCreate.cs" />
     <Compile Include="UserDetail.cs" />

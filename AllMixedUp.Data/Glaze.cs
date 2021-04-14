@@ -24,6 +24,9 @@ namespace AllMixedUp.Data
 
         public string Description { get; set; }
 
+        //Ingredient
+        public List<Ingredient> IngredientList { get; set; }
+
         [Required]
         public bool FoodSafe { get; set; }
 

@@ -39,6 +39,10 @@ namespace AllMixedUp.Models
         [Display(Name = "Color")]
         public MainColor Hue { get; set; }
 
+        [Display(Name = "Finish")]
+        public int finishID { get; set; }
+        public Finish Finish { get; set; }
+
        //public List<string> Ingredients { get; set; }
 
         [Display(Name = "Created")]

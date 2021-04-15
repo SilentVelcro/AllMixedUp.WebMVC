@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AllMixedUp.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,8 +17,8 @@ namespace AllMixedUp.Models
         [Display(Name = "Glaze")]
         public string GlazeName { get; set; }
 
-        [Display(Name = "UserID")]
-        public int UserID { get; set; }
+        [Display(Name = "User")]
+        public string User { get; set; }
 
         [Display(Name = "Description")]
         public string Description { get; set; }
@@ -33,6 +34,9 @@ namespace AllMixedUp.Models
 
         [Display(Name = "Color")]
         public MainColor Hue { get; set; }
+
+        [Display(Name = "Finish")]
+        public Finish Finish { get; set; }
 
         [Display(Name = "Food safe")]
         public bool FoodSafe { get; set; }

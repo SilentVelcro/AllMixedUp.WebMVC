@@ -25,11 +25,14 @@ namespace AllMixedUp.Services
                     GlazeID = model.GlazeID,
                     GlazeName = model.GlazeName,
                     UserID = model.UserID,
+                    User = model.User,
                     Description = model.Description,
                     MinimumCone = model.MinimumCone,
                     MaximumCone = model.MaximumCone,
                     Hue = model.Hue,
                     Atmosphere = model.Atmosphere,
+                    FinishID = model.finishID,
+                    Finish = model.Finish,
                     FoodSafe = model.FoodSafe,
                     CreatedDate = DateTimeOffset.Now
                 };
@@ -62,6 +65,7 @@ namespace AllMixedUp.Services
                                     MaximumCone = e.MaximumCone,
                                     Hue = e.Hue,
                                     Atmosphere = e.Atmosphere,
+                                    Finish = e.Finish,
                                     FoodSafe = e.FoodSafe,
                                 }
                         );
@@ -84,12 +88,13 @@ namespace AllMixedUp.Services
                     {
                         GlazeID = entity.GlazeID,
                         GlazeName = entity.GlazeName,
-                        UserID = entity.UserID,
+                        User = entity.User.LastName,
                         Description = entity.Description,
                         MinimumCone = entity.MinimumCone,
                         MaximumCone = entity.MaximumCone,
                         Hue = entity.Hue,
                         Atmosphere = entity.Atmosphere,
+                        Finish = entity.Finish,
                         FoodSafe = entity.FoodSafe,
                         CreatedDate = entity.CreatedDate,
                         ModifiedDate = entity.ModifiedDate
@@ -114,6 +119,7 @@ namespace AllMixedUp.Services
                 entity.Hue = model.Hue;
                 entity.Atmosphere = model.Atmosphere;
                 entity.FoodSafe = model.FoodSafe;
+                entity.FinishID = model.FinishID;
                 entity.ModifiedDate = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

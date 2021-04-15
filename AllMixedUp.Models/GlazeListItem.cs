@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AllMixedUp.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -36,6 +37,9 @@ namespace AllMixedUp.Models
 
         [Display(Name = "Food safe")]
         public bool FoodSafe { get; set; }
+
+        [Display(Name = "Finish")]
+        public Finish Finish { get; set; }
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedDate { get; set; }

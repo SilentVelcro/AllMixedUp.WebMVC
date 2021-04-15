@@ -40,6 +40,9 @@ namespace AllMixedUp.Models
         [Display(Name = "Food safe")]
         public bool FoodSafe { get; set; }
 
+        [Display(Name = "Finish")]
+        public int FinishID { get; set; }
+
         [Display(Name = "Created")]
         public DateTimeOffset CreatedDate { get; set; }
     }

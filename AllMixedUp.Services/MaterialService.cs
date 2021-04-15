@@ -8,51 +8,50 @@ using System.Threading.Tasks;
 
 namespace AllMixedUp.Services
 {
-    public class UserService
+    public class MaterialService
     {
         private readonly Guid _userId;
-        public UserService(Guid userId)
+        public MaterialService(Guid userId)
         {
             _userId = userId;
         }
 
         //CREATE method
-        public bool CreateUser(UserCreate model)
+        public bool CreateMaterial(MaterialCreate model)
         {
             var entity =
-                new User()
+                new Material()
                 {
                     OwnerId = _userId,
-                    UserID = model.UserID,
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    Email = model.Email,
+                    MaterialID = model.MaterialID,
+                    MaterialName = model.MaterialName,
+                    HealthHazard = model.HealthHazard,
                     CreatedDate = DateTimeOffset.Now
                 };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.User.Add(entity);
+                ctx.Material.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
         //ADD Method
-        public IEnumerable<UserListItem> GetUser()
+        public IEnumerable<MaterialListItem> GetMaterial()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                        .User
+                        .Material
                         .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
-                                new UserListItem
+                                new MaterialListItem
                                 {
-                                    UserID = e.UserID,
-                                    UserName = e.FirstName + " " + e.LastName,
-                                    Email = e.Email,
+                                    //UserID = e.UserID,
+                                    //UserName = e.FirstName + " " + e.LastName,
+                                    //Email = e.Email,
                                     CreatedDate = e.CreatedDate
                                 }
                         );
@@ -62,21 +61,21 @@ namespace AllMixedUp.Services
         }
 
         //Detail 
-        public UserDetail GetUserById(int id)
+        public UserDetail GetMaterialById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .User
-                        .Single(e => e.UserID == id && e.OwnerId == _userId);
+                        .Material
+                        .Single(e => e.MaterialID == id && e.OwnerId == _userId);
                 return
                     new UserDetail
                     {
-                        UserID = entity.UserID,
-                        FirstName = entity.FirstName,
-                        LastName = entity.LastName,
-                        Email = entity.Email,
+                        //UserID = entity.UserID,
+                        //FirstName = entity.FirstName,
+                        //LastName = entity.LastName,
+                        //Email = entity.Email,
                         CreatedDate = entity.CreatedDate,
                         ModifiedDate = entity.ModifiedDate
                     };
@@ -84,18 +83,18 @@ namespace AllMixedUp.Services
         }
 
         //UPDATE
-        public bool UpdateUser(UserEdit model)
+        public bool UpdateMaterial(MaterialEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .User
-                        .Single(e => e.UserID == model.UserID && e.OwnerId == _userId);
+                        .Material
+                        .Single(e => e.MaterialID == model.MaterialID && e.OwnerId == _userId);
 
-                entity.FirstName = model.FirstName;
-                entity.LastName = model.LastName;
-                entity.Email = model.Email;
+                //entity.FirstName = model.FirstName;
+                //entity.LastName = model.LastName;
+                //entity.Email = model.Email;
                 entity.ModifiedDate = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
@@ -103,16 +102,16 @@ namespace AllMixedUp.Services
         }
 
         //DELETE
-        public bool DeleteUser(int userId)
+        public bool DeleteMaterial(int materialID)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .User
-                        .Single(e => e.UserID == userId && e.OwnerId == _userId);
+                        .Material
+                        .Single(e => e.MaterialID == materialID && e.OwnerId == _userId);
 
-                ctx.User.Remove(entity);
+                ctx.Material.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

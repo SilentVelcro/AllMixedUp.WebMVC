@@ -80,6 +80,10 @@
     <Compile Include="Migrations\202104132336558_USEREDIT.Designer.cs">
       <DependentUpon>202104132336558_USEREDIT.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104152305063_OwnerId.cs" />
+    <Compile Include="Migrations\202104152305063_OwnerId.Designer.cs">
+      <DependentUpon>202104152305063_OwnerId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
@@ -103,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104132336558_USEREDIT.resx">
       <DependentUpon>202104132336558_USEREDIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104152305063_OwnerId.resx">
+      <DependentUpon>202104152305063_OwnerId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -36,6 +36,7 @@ namespace AllMixedUp.Data
         }
         public DbSet<User> User { get; set; }
         public DbSet<Glaze> Glaze { get; set; }
+        public DbSet<Material> Material { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

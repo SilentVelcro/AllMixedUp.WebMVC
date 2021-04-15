@@ -11,9 +11,12 @@ namespace AllMixedUp.Data
     {
         [Key]
         public int MaterialID { get; set; }
+        public Guid OwnerId { get; set; }
         [Required]
         public string MaterialName { get; set; }
         [Required]
         public bool HealthHazard { get; set; }
+        public DateTimeOffset CreatedDate { get; set; }
+        public DateTimeOffset? ModifiedDate { get; set; }
     }
 }

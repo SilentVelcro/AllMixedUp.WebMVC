@@ -17,7 +17,7 @@ namespace AllMixedUp.Data
         public int UserID { get; set; }
         public virtual User User { get; set; }
 
-        public Guid PotterID { get; set; }
+        public Guid OwnerId { get; set; }
 
         [Required]
         public string GlazeName { get; set; }

@@ -22,9 +22,10 @@ namespace AllMixedUp.Services
             var entity =
                 new Glaze()
                 {
+                    OwnerId = _userId,
+                    UserID = model.UserID,
                     GlazeID = model.GlazeID,
                     GlazeName = model.GlazeName,
-                    UserID = model.UserID,
                     User = model.User,
                     Description = model.Description,
                     MinimumCone = model.MinimumCone,
@@ -52,7 +53,7 @@ namespace AllMixedUp.Services
                 var query =
                     ctx
                         .Glaze
-                        .Where(e => e.PotterID == _userId)
+                        .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
                                 new GlazeListItem
@@ -82,7 +83,7 @@ namespace AllMixedUp.Services
                 var entity =
                     ctx
                         .Glaze
-                        .Single(e => e.GlazeID == id && e.PotterID == _userId);
+                        .Single(e => e.GlazeID == id && e.OwnerId == _userId);
                 return
                     new GlazeDetail
                     {
@@ -110,7 +111,7 @@ namespace AllMixedUp.Services
                 var entity =
                     ctx
                         .Glaze
-                        .Single(e => e.UserID == model.GlazeID && e.PotterID == _userId);
+                        .Single(e => e.UserID == model.GlazeID && e.OwnerId == _userId);
 
                 entity.GlazeName = model.GlazeName;
                 entity.Description = model.Description;
@@ -127,14 +128,14 @@ namespace AllMixedUp.Services
         }
 
         //DELETE
-        public bool DeleteGlaze(int noteId)
+        public bool DeleteGlaze(int glazeID)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Glaze
-                        .Single(e => e.UserID == noteId && e.PotterID == _userId);
+                        .Single(e => e.UserID == glazeID && e.OwnerId == _userId);
 
                 ctx.Glaze.Remove(entity);
 

@@ -35,6 +35,7 @@ namespace AllMixedUp.Data
             return new ApplicationDbContext();
         }
         public DbSet<User> User { get; set; }
+        public DbSet<Glaze> Glaze { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

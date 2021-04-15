@@ -17,10 +17,13 @@ namespace AllMixedUp.Data
         public int UserID { get; set; }
         public virtual User User { get; set; }
 
+        public Guid PotterID { get; set; }
+
         [Required]
         public string GlazeName { get; set; }
 
-        public DateTimeOffset CreatedRecipeDate { get; set; }
+        public DateTimeOffset CreatedDate { get; set; }
+        public DateTimeOffset? ModifiedDate { get; set; }
 
         public string Description { get; set; }
 

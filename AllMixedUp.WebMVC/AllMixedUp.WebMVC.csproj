@@ -251,10 +251,14 @@
     <Content Include="Views\Finish\Details.cshtml" />
     <Content Include="Views\Finish\Edit.cshtml" />
     <Content Include="Views\Finish\Delete.cshtml" />
+    <Content Include="Views\Glaze\Create.cshtml" />
+    <Content Include="Views\Glaze\Index.cshtml" />
+    <Content Include="Views\Glaze\Details.cshtml" />
+    <Content Include="Views\Glaze\Edit.cshtml" />
+    <Content Include="Views\Glaze\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Glaze\" />
     <Folder Include="Views\Ingredient\" />
     <Folder Include="Views\Material\" />
     <Folder Include="Views\Message\" />

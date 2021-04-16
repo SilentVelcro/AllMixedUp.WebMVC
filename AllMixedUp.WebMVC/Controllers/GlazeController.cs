@@ -65,6 +65,13 @@ namespace AllMixedUp.WebMVC.Controllers
                 new GlazeEdit
                 {
                     GlazeName = detail.GlazeName,
+                    IngredientList = detail.IngredientList,
+                    Description = detail.Description,
+                    Atmosphere = detail.Atmosphere,
+                    MinimumCone = detail.MinimumCone,
+                    MaximumCone = detail.MaximumCone,
+                    Hue = detail.Hue,
+                    Finish = detail.Finish, 
                     FoodSafe = detail.FoodSafe,
                 };
             return View(model);

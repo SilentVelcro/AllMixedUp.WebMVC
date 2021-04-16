@@ -28,6 +28,7 @@ namespace AllMixedUp.Services
                     GlazeName = model.GlazeName,
                     User = model.User,
                     Description = model.Description,
+                    IngredientList = model.IngredientList,
                     MinimumCone = model.MinimumCone,
                     MaximumCone = model.MaximumCone,
                     Hue = model.Hue,
@@ -62,6 +63,7 @@ namespace AllMixedUp.Services
                                     GlazeName = e.GlazeName,
                                     UserID = e.UserID,
                                     Description = e.Description,
+                                    IngredientList = e.IngredientList,
                                     MinimumCone = e.MinimumCone,
                                     MaximumCone = e.MaximumCone,
                                     Hue = e.Hue,
@@ -91,6 +93,7 @@ namespace AllMixedUp.Services
                         GlazeName = entity.GlazeName,
                         User = entity.User.LastName,
                         Description = entity.Description,
+                        IngredientList = entity.IngredientList,
                         MinimumCone = entity.MinimumCone,
                         MaximumCone = entity.MaximumCone,
                         Hue = entity.Hue,
@@ -115,6 +118,7 @@ namespace AllMixedUp.Services
 
                 entity.GlazeName = model.GlazeName;
                 entity.Description = model.Description;
+                entity.IngredientList = model.IngredientList;
                 entity.MinimumCone = model.MinimumCone;
                 entity.MaximumCone = model.MaximumCone;
                 entity.Hue = model.Hue;

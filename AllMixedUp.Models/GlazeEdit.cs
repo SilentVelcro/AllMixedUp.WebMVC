@@ -23,6 +23,9 @@ namespace AllMixedUp.Models
         [Display(Name = "Description")]
         public string Description { get; set; }
 
+        [Display(Name = "Ingredient(s)")]
+        public List<Ingredient> IngredientList { get; set; }
+
         [Display(Name = "Atmosphere")]
         public FireProcess Atmosphere { get; set; }
 
@@ -42,6 +45,8 @@ namespace AllMixedUp.Models
 
         [Display(Name = "Finish")]
         public int FinishID { get; set; }
+
+        public virtual Finish Finish { get; set; }
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedDate { get; set; }

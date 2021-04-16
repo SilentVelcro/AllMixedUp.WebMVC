@@ -24,6 +24,9 @@ namespace AllMixedUp.Models
         [Display(Name = "Description")]
         public string Description { get; set; }
 
+        [Display(Name = "Ingredient(s)")]
+        public List<Ingredient> IngredientList { get; set; }
+
         [Display(Name = "Food safe")]
         public bool FoodSafe { get; set; }
 

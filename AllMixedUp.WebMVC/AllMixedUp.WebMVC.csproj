@@ -246,10 +246,14 @@
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
+    <Content Include="Views\Finish\Create.cshtml" />
+    <Content Include="Views\Finish\Index.cshtml" />
+    <Content Include="Views\Finish\Details.cshtml" />
+    <Content Include="Views\Finish\Edit.cshtml" />
+    <Content Include="Views\Finish\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Finish\" />
     <Folder Include="Views\Glaze\" />
     <Folder Include="Views\Ingredient\" />
     <Folder Include="Views\Material\" />

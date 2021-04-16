@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static AllMixedUp.Data.Finish;
 
 namespace AllMixedUp.Models
 {
@@ -13,9 +14,15 @@ namespace AllMixedUp.Models
         public int FinishID { get; set; }
 
         [Display(Name = "Opacity")]
-        public string Opacity { get; set; }
+        public Opacity Op { get; set; }
 
         [Display(Name = "Surface")]
-        public string Surface { get; set; }
+        public Surface Surf { get; set; }
+
+        [Display(Name = "Created")]
+        public DateTimeOffset CreatedDate { get; set; }
+
+        [Display(Name = "Modified")]
+        public DateTimeOffset? ModifiedDate { get; set; }
     }
 }

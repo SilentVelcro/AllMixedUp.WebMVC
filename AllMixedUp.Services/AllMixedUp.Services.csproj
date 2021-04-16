@@ -57,6 +57,7 @@
     <Compile Include="FinishService.cs" />
     <Compile Include="GlazeService.cs" />
     <Compile Include="MaterialService.cs" />
+    <Compile Include="MessageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserService.cs" />
   </ItemGroup>

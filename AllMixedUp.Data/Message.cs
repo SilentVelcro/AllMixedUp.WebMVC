@@ -12,6 +12,7 @@ namespace AllMixedUp.Data
     {
         [Key]
         public int MessageID { get; set; }
+        public Guid OwnerId { get; set; }
 
         [ForeignKey("From")]
         public int FromID { get; set; }
@@ -25,5 +26,6 @@ namespace AllMixedUp.Data
         public string Body { get; set; }
 
         public DateTimeOffset CreatedDate { get; set; }
+        public DateTimeOffset? ModifiedDate { get; set; }
     }
 }

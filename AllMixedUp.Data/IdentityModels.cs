@@ -34,10 +34,13 @@ namespace AllMixedUp.Data
         {
             return new ApplicationDbContext();
         }
+
+        //DBSET LIST
         public DbSet<User> User { get; set; }
         public DbSet<Glaze> Glaze { get; set; }
         public DbSet<Material> Material { get; set; }
         public DbSet<Finish> Finish { get; set; }
+        public DbSet<Message> Message { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

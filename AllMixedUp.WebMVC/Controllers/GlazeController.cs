@@ -64,7 +64,6 @@ namespace AllMixedUp.WebMVC.Controllers
             var model =
                 new GlazeEdit
                 {
-                    GlazeID = detail.GlazeID,
                     GlazeName = detail.GlazeName,
                     FoodSafe = detail.FoodSafe,
                 };

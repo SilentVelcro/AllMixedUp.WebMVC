@@ -64,10 +64,8 @@ namespace AllMixedUp.WebMVC.Controllers
             var model =
                 new MaterialEdit
                 {
-                    //UserID = detail.UserID,
-                    //FirstName = detail.FirstName,
-                    //LastName = detail.LastName,
-                    //Email = detail.Email,
+                    MaterialName = detail.MaterialName,
+                    HealthHazard = detail.HealthHazard,
                 };
             return View(model);
         }

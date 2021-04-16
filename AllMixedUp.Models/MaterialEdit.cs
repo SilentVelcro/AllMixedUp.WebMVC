@@ -11,7 +11,6 @@ namespace AllMixedUp.Models
     {
         [Display(Name = "ID")]
         public int MaterialID { get; set; }
-
         public Guid PotterID { get; set; }
 
         [Display(Name = "Material Name")]

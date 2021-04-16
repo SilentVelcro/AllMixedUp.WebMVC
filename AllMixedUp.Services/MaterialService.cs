@@ -49,9 +49,9 @@ namespace AllMixedUp.Services
                             e =>
                                 new MaterialListItem
                                 {
-                                    //UserID = e.UserID,
-                                    //UserName = e.FirstName + " " + e.LastName,
-                                    //Email = e.Email,
+                                    MaterialID = e.MaterialID,
+                                    MaterialName = e.MaterialName,
+                                    HealthHazard = e.HealthHazard,
                                     CreatedDate = e.CreatedDate
                                 }
                         );
@@ -61,7 +61,7 @@ namespace AllMixedUp.Services
         }
 
         //Detail 
-        public UserDetail GetMaterialById(int id)
+        public MaterialDetail GetMaterialById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -70,14 +70,12 @@ namespace AllMixedUp.Services
                         .Material
                         .Single(e => e.MaterialID == id && e.OwnerId == _userId);
                 return
-                    new UserDetail
+                    new MaterialDetail
                     {
-                        //UserID = entity.UserID,
-                        //FirstName = entity.FirstName,
-                        //LastName = entity.LastName,
-                        //Email = entity.Email,
+                        MaterialName = entity.MaterialName,
+                        HealthHazard = entity.HealthHazard,
                         CreatedDate = entity.CreatedDate,
-                        ModifiedDate = entity.ModifiedDate
+                        ModifiedDate = entity.ModifiedDate,
                     };
             }
         }
@@ -92,9 +90,8 @@ namespace AllMixedUp.Services
                         .Material
                         .Single(e => e.MaterialID == model.MaterialID && e.OwnerId == _userId);
 
-                //entity.FirstName = model.FirstName;
-                //entity.LastName = model.LastName;
-                //entity.Email = model.Email;
+                entity.MaterialName = model.MaterialName;
+                entity.HealthHazard = model.HealthHazard;
                 entity.ModifiedDate = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

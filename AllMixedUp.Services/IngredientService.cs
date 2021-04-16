@@ -22,9 +22,11 @@ namespace AllMixedUp.Services
             var entity =
                 new Ingredient()
                 {
-                    //OwnerId = _userId,
-                    //IngredientID = model.IngredientID,
-                    //CreatedDate = DateTimeOffset.Now
+                    OwnerId = _userId,
+                    IngredientID = model.IngredientID,
+                    MaterialID = model.MaterialID,
+                    Quantity = model.Quantity,
+                    CreatedDate = DateTimeOffset.Now
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -48,6 +50,8 @@ namespace AllMixedUp.Services
                                 new IngredientListItem
                                 {
                                     IngredientID = e.IngredientID,
+                                    MaterialID = e.MaterialID,
+                                    Quantity = e.Quantity,
                                 }
                         );
 
@@ -68,6 +72,8 @@ namespace AllMixedUp.Services
                     new IngredientDetail
                     {
                         IngredientID = entity.IngredientID,
+                        MaterialID = entity.MaterialID,
+                        Quantity = entity.Quantity,
                         CreatedDate = entity.CreatedDate,
                         ModifiedDate = entity.ModifiedDate
                     };

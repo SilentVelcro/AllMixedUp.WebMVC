@@ -46,8 +46,6 @@ namespace AllMixedUp.Models
         public int finishID { get; set; }
         public Finish Finish { get; set; }
 
-       //public List<string> Ingredients { get; set; }
-
         [Display(Name = "Created")]
         public DateTimeOffset CreatedDate { get; set; }
     }

@@ -41,6 +41,8 @@ namespace AllMixedUp.Data
         public DbSet<Material> Material { get; set; }
         public DbSet<Finish> Finish { get; set; }
         public DbSet<Message> Message { get; set; }
+        public DbSet<Ingredient> Ingredient { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

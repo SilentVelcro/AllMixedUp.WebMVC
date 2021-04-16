@@ -139,7 +139,7 @@ namespace AllMixedUp.Services
                 var entity =
                     ctx
                         .Glaze
-                        .Single(e => e.UserID == glazeID && e.OwnerId == _userId);
+                        .Single(e => e.GlazeID == glazeID && e.OwnerId == _userId);
 
                 ctx.Glaze.Remove(entity);
 

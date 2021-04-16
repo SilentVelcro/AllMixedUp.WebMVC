@@ -13,6 +13,8 @@ namespace AllMixedUp.Data
         [Key]
         public int IngredientID { get; set; }
 
+        public Guid OwnerId { get; set; }
+
         [ForeignKey("Material")]
         public int MaterialID { get; set; }
         public virtual Material Material { get; set; }
@@ -23,5 +25,9 @@ namespace AllMixedUp.Data
 
         [Required]
         public double Quantity { get; set; }
+
+        public DateTimeOffset CreatedDate { get; set; }
+
+        public DateTimeOffset? ModifiedDate { get; set; }
     }
 }

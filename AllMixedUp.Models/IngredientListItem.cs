@@ -18,5 +18,8 @@ namespace AllMixedUp.Models
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedDate { get; set; }
+
+        [Display(Name = "Modified")]
+        public DateTimeOffset? ModifiedDate { get; set; }
     }
 }

@@ -256,11 +256,15 @@
     <Content Include="Views\Glaze\Details.cshtml" />
     <Content Include="Views\Glaze\Edit.cshtml" />
     <Content Include="Views\Glaze\Delete.cshtml" />
+    <Content Include="Views\Material\Index.cshtml" />
+    <Content Include="Views\Material\Create.cshtml" />
+    <Content Include="Views\Material\Details.cshtml" />
+    <Content Include="Views\Material\Edit.cshtml" />
+    <Content Include="Views\Material\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Ingredient\" />
-    <Folder Include="Views\Material\" />
     <Folder Include="Views\Message\" />
   </ItemGroup>
   <ItemGroup>

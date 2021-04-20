@@ -14,13 +14,9 @@ namespace AllMixedUp.Data
         public int MessageID { get; set; }
         public Guid OwnerId { get; set; }
 
-        [ForeignKey("From")]
-        public int FromID { get; set; }
-        public virtual User From { get; set; }
-
-        [ForeignKey("To")]
-        public int ToID { get; set; }
-        public virtual User To { get; set; }
+        public int UserID { get; set; }
+        [ForeignKey("UserID")]
+        public virtual User User { get; set; }
 
         [Required]
         public string Body { get; set; }

@@ -60,33 +60,9 @@
     <Compile Include="Ingredient.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="Message.cs" />
-    <Compile Include="Migrations\202104121440268_.data created.cs" />
-    <Compile Include="Migrations\202104121440268_.data created.Designer.cs">
-      <DependentUpon>202104121440268_.data created.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104121639487_UserCreae.cs" />
-    <Compile Include="Migrations\202104121639487_UserCreae.Designer.cs">
-      <DependentUpon>202104121639487_UserCreae.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104121702470_RAHAHAHAAAAA.cs" />
-    <Compile Include="Migrations\202104121702470_RAHAHAHAAAAA.Designer.cs">
-      <DependentUpon>202104121702470_RAHAHAHAAAAA.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104132231495_UserDetail.cs" />
-    <Compile Include="Migrations\202104132231495_UserDetail.Designer.cs">
-      <DependentUpon>202104132231495_UserDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104132336558_USEREDIT.cs" />
-    <Compile Include="Migrations\202104132336558_USEREDIT.Designer.cs">
-      <DependentUpon>202104132336558_USEREDIT.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104152305063_OwnerId.cs" />
-    <Compile Include="Migrations\202104152305063_OwnerId.Designer.cs">
-      <DependentUpon>202104152305063_OwnerId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104152347045_FinishCreated.cs" />
-    <Compile Include="Migrations\202104152347045_FinishCreated.Designer.cs">
-      <DependentUpon>202104152347045_FinishCreated.cs</DependentUpon>
+    <Compile Include="Migrations\202104202255195_intial.cs" />
+    <Compile Include="Migrations\202104202255195_intial.Designer.cs">
+      <DependentUpon>202104202255195_intial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,26 +73,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104121440268_.data created.resx">
-      <DependentUpon>202104121440268_.data created.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104121639487_UserCreae.resx">
-      <DependentUpon>202104121639487_UserCreae.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104121702470_RAHAHAHAAAAA.resx">
-      <DependentUpon>202104121702470_RAHAHAHAAAAA.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104132231495_UserDetail.resx">
-      <DependentUpon>202104132231495_UserDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104132336558_USEREDIT.resx">
-      <DependentUpon>202104132336558_USEREDIT.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104152305063_OwnerId.resx">
-      <DependentUpon>202104152305063_OwnerId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104152347045_FinishCreated.resx">
-      <DependentUpon>202104152347045_FinishCreated.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104202255195_intial.resx">
+      <DependentUpon>202104202255195_intial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

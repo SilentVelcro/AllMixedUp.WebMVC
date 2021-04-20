@@ -13,8 +13,8 @@ namespace AllMixedUp.Data
         [Key]
         public int GlazeID { get; set; }
 
-        [ForeignKey("User")]
         public int UserID { get; set; }
+        [ForeignKey("UserID")]
         public virtual User User { get; set; }
 
         public Guid OwnerId { get; set; }
@@ -29,8 +29,9 @@ namespace AllMixedUp.Data
 
         //Ingredient
         public List<Ingredient> IngredientList { get; set; }
+        public ICollection<Message> Messages { get;}
 
-        [Required]
+       [Required]
         public bool FoodSafe { get; set; }
 
         [ForeignKey("Finish")]

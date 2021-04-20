@@ -24,8 +24,7 @@ namespace AllMixedUp.Services
                 {
                     OwnerId = _userId,
                     MessageID = model.MessageID,
-                    ToID = model.ToID,
-                    FromID = model.FromID,
+                    UserID = model.UserID,
                     Body = model.Body,
                     CreatedDate = DateTimeOffset.Now
                 };
@@ -51,8 +50,7 @@ namespace AllMixedUp.Services
                                 new MessageListItem
                                 {
                                     MessageID = e.MessageID,
-                                    ToID = e.ToID,
-                                    FromID = e.FromID,
+                                    UserID = e.UserID,
                                     Body = e.Body,
                                     CreatedDate = e.CreatedDate
                                 }
@@ -75,8 +73,7 @@ namespace AllMixedUp.Services
                     new MessageDetail
                     {
                         MessageID = entity.MessageID,
-                        ToID = entity.ToID,
-                        FromID = entity.FromID,
+                        UserID = entity.UserID,
                         Body = entity.Body,
                         CreatedDate = entity.CreatedDate,
                     };

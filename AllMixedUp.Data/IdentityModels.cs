@@ -54,6 +54,8 @@ namespace AllMixedUp.Data
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
         }
+    }
+
         public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
         {
             public IdentityUserLoginConfiguration()
@@ -61,6 +63,7 @@ namespace AllMixedUp.Data
                 HasKey(iul => iul.UserId);
             }
         }
+
         public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
         {
             public IdentityUserRoleConfiguration()
@@ -68,5 +71,4 @@ namespace AllMixedUp.Data
                 HasKey(iur => iur.UserId);
             }
         }
-    }
 }

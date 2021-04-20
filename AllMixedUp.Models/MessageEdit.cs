@@ -13,10 +13,7 @@ namespace AllMixedUp.Models
         public int MessageID { get; set; }
 
         [Display(Name = "From")]
-        public int FromID { get; set; }
-
-        [Display(Name = "To")]
-        public int ToID { get; set; }
+        public int UserID { get; set; }
 
         [Display(Name = "Body")]
         public string Body { get; set; }

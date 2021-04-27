@@ -1,5 +1,5 @@
-﻿using AllMixedUp.Models;
-using AllMixedUp.Services;
+﻿using AllMixedUp.Services;
+using AllMixedUp.Models;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;

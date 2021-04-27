@@ -26,6 +26,12 @@ namespace AllMixedUp.Data
         [Required]
         public double Quantity { get; set; }
 
+        public virtual ICollection<Material> MaterialList { get; set; }
+        public Ingredient()
+        {
+            MaterialList = new HashSet<Material>();
+        }
+
         public DateTimeOffset CreatedDate { get; set; }
 
         public DateTimeOffset? ModifiedDate { get; set; }

@@ -64,6 +64,10 @@
     <Compile Include="Migrations\202104202255195_intial.Designer.cs">
       <DependentUpon>202104202255195_intial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104202312213_MessageFkFixed.cs" />
+    <Compile Include="Migrations\202104202312213_MessageFkFixed.Designer.cs">
+      <DependentUpon>202104202312213_MessageFkFixed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
@@ -75,6 +79,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202104202255195_intial.resx">
       <DependentUpon>202104202255195_intial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104202312213_MessageFkFixed.resx">
+      <DependentUpon>202104202312213_MessageFkFixed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

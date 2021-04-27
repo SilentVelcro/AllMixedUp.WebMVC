@@ -90,8 +90,7 @@ namespace AllMixedUp.Services
                         .Message
                         .Single(e => e.MessageID == model.MessageID && e.OwnerId == _userId);
 
-                entity.MessageID = model.MessageID;
-                entity.ModifiedDate = DateTimeOffset.UtcNow;
+                entity.Body = model.Body;
 
                 return ctx.SaveChanges() == 1;
             }

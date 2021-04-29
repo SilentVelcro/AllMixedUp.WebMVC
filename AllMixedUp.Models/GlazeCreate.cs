@@ -37,20 +37,20 @@ namespace AllMixedUp.Models
 
         [Required]
         [Display(Name = "Atmosphere")]
-        public FireProcess Atmosphere { get; set; }
+        public Atmosphere Atmosphere { get; set; }
 
         [Required]
         [Display(Name = "Minimum Cone")]
-        public MinCone MinimumCone { get; set; }
+        public MinCone MinCone { get; set; }
 
         [Display(Name = "Maximum Cone")]
-        public MaxCone MaximumCone { get; set; }
+        public MaxCone MaxCone { get; set; }
 
         [Display(Name = "Color")]
-        public MainColor Hue { get; set; }
+        public MainColor MainColor { get; set; }
 
+        public int FinishID { get; set; }
         [Display(Name = "Finish")]
-        public int finishID { get; set; }
         public Finish Finish { get; set; }
 
         [Display(Name = "Created")]

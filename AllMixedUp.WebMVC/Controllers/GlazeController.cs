@@ -68,9 +68,8 @@ namespace AllMixedUp.WebMVC.Controllers
                     IngredientList = detail.IngredientList,
                     Description = detail.Description,
                     Atmosphere = detail.Atmosphere,
-                    MinimumCone = detail.MinimumCone,
-                    MaximumCone = detail.MaximumCone,
-                    Hue = detail.Hue,
+                    MinCone = detail.MinCone,
+                    MainColor = detail.MainColor,
                     Finish = detail.Finish, 
                     FoodSafe = detail.FoodSafe,
                 };

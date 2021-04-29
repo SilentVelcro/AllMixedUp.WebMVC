@@ -1,5 +1,5 @@
 ﻿@model AllMixedUp.Models.GlazeCreate
-
+@using AllMixedUp.Data 
 @{
     ViewBag.Title = "Create";
 }
@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>GlazeCreate</h4>
+    <h4>Glaze Create</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -27,34 +27,39 @@
 
     @*CONES*@
     <div class="form-group">
-        @Html.LabelFor(model => model.MinimumCone, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.MinCone, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.MinimumCone, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.MinimumCone, "", new { @class = "text-danger" })
+            @Html.DropDownListFor(model => model.MinCone, new SelectList(Enum.GetValues(typeof(MinCone))), new
+       { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MinCone, "", new { @class = "text-danger" })
         </div>
     </div>
+
     <div class="form-group">
-        @Html.LabelFor(model => model.MaximumCone, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.MaxCone, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.MaximumCone, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.MaximumCone, "", new { @class = "text-danger" })
+            @Html.DropDownListFor(model => model.MaxCone, new SelectList(Enum.GetValues(typeof(MaxCone))), new
+       { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaxCone, "", new { @class = "text-danger" })
         </div>
     </div>
 
     @*COLOR*@
     <div class="form-group">
-        @Html.LabelFor(model => model.Hue, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.MainColor, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Hue, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Hue, "", new { @class = "text-danger" })
+            @Html.DropDownListFor(model =>model.MainColor, new SelectList(Enum.GetValues(typeof(MainColor))) , new
+       {htmlAttributes = new { @class = "form-control"} })
+            @Html.ValidationMessageFor(model => model.MainColor, "", new { @class = "text-danger" })
         </div>
     </div>
 
-    @*COLOR*@
+    @*FIRE PROCESS*@
     <div class="form-group">
         @Html.LabelFor(model => model.Atmosphere, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Atmosphere, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.DropDownListFor(model => model.MaxCone, new SelectList(Enum.GetValues(typeof(Atmosphere))), new
+       { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Atmosphere, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -79,10 +84,10 @@
 
     @*FINISH*@
     <div class="form-group">
-        @Html.LabelFor(model => model.finishID, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.FinishID, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.finishID, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.finishID, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.FinishID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FinishID, "", new { @class = "text-danger" })
         </div>
     </div>
 

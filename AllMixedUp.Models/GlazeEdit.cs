@@ -27,16 +27,16 @@ namespace AllMixedUp.Models
         public ICollection<Ingredient> IngredientList { get; set; }
 
         [Display(Name = "Atmosphere")]
-        public FireProcess Atmosphere { get; set; }
+        public Atmosphere Atmosphere { get; set; }
 
         [Display(Name = "Minimum Cone")]
-        public MinCone MinimumCone { get; set; }
+        public MinCone MinCone { get; set; }
 
         [Display(Name = "Maximum Cone")]
-        public MaxCone MaximumCone { get; set; }
+        public MaxCone MaxCone { get; set; }
 
         [Display(Name = "Color")]
-        public MainColor Hue { get; set; }
+        public MainColor MainColor { get; set; }
 
         //public List<string> Ingredients { get; set; }
 

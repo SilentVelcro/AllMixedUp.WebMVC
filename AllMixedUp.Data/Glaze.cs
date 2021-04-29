@@ -8,46 +8,8 @@ using System.Threading.Tasks;
 
 namespace AllMixedUp.Data
 {
-    public class Glaze
-    {
-        [Key]
-        public int GlazeID { get; set; }
-
-        public Guid OwnerId { get; set; }
-
-        public int UserID { get; set; }
-        [ForeignKey("UserID")]
-        public virtual User User { get; set; }
-
-        [Required]
-        public string GlazeName { get; set; }
-
-        public string Description { get; set; }
-
-        //Ingredient
-        public virtual ICollection<Ingredient> IngredientList { get; set; }
-        public Glaze()
-        {
-            IngredientList = new HashSet<Ingredient>();
-        }
-
-       [Required]
-        public bool FoodSafe { get; set; }
-
-        [ForeignKey("Finish")]
-        public int FinishID { get; set; }
-        public virtual Finish Finish { get; set; }
-        public FireProcess Atmosphere { get; set; }
-        public MainColor Hue { get; set; }
-        public MinCone MinimumCone { get; set; }
-        public MaxCone MaximumCone { get; set; }
-        public DateTimeOffset CreatedDate { get; set; }
-        public DateTimeOffset? ModifiedDate { get; set; }
-
-        //public ICollection<Message> Messages { get;}
-    }
     //Enum(s)
-    public enum FireProcess
+    public enum Atmosphere
     {
         Reduction = 1,
         Oxidation = 2,
@@ -144,5 +106,44 @@ namespace AllMixedUp.Data
         Cone11 = 34,
         Cone12 = 35,
         Cone13 = 36,
+    }
+     
+    public class Glaze
+    {
+        [Key]
+        public int GlazeID { get; set; }
+
+        public Guid OwnerId { get; set; }
+
+        public int UserID { get; set; }
+        [ForeignKey("UserID")]
+        public virtual User User { get; set; }
+
+        [Required]
+        public string GlazeName { get; set; }
+
+        public string Description { get; set; }
+
+        //Ingredient
+        public virtual ICollection<Ingredient> IngredientList { get; set; }
+        public Glaze()
+        {
+            IngredientList = new HashSet<Ingredient>();
+        }
+
+       [Required]
+        public bool FoodSafe { get; set; }
+
+        [ForeignKey("Finish")]
+        public int FinishID { get; set; }
+        public virtual Finish Finish { get; set; }
+        public Atmosphere Atmosphere { get; set; }
+        public MainColor MainColor { get; set; }
+        public MinCone MinCone { get; set; }
+        public MaxCone MaxCone { get; set; }
+        public DateTimeOffset CreatedDate { get; set; }
+        public DateTimeOffset? ModifiedDate { get; set; }
+
+        //public ICollection<Message> Messages { get;}
     }
 }

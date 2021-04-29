@@ -18,6 +18,7 @@ namespace AllMixedUp.WebMVC.Controllers
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new IngredientService(userId);
             var model = service.GetIngredient();
+
             return View(model);
         }
 
@@ -32,7 +33,8 @@ namespace AllMixedUp.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(IngredientCreate model)
         {
-            if (!ModelState.IsValid) return View(model);
+            if (!ModelState.IsValid) 
+                return View(model);
 
             var service = CreateIngredientService();
 
@@ -74,7 +76,8 @@ namespace AllMixedUp.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IngredientEdit model)
         {
-            if (!ModelState.IsValid) return View(model);
+            if (!ModelState.IsValid) 
+                return View(model);
 
             if (model.IngredientID != id)
             {

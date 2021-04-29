@@ -9,36 +9,36 @@ using System.Web.Mvc;
 
 namespace AllMixedUp.WebMVC.Controllers
 {
-    [Authorize]
+        [Authorize]
+
     public class GlazeController : Controller
     {
-        // GET: Glaze
+        //GET / GLAZE / INDEX
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new GlazeService(userId);
+            var service = CreateGlazeService();
             var model = service.GetGlaze();
             return View(model);
         }
 
-        //GET
+        //CREATE
         public ActionResult Create()
         {
             return View();
         }
 
-        //CREATE POST
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(GlazeCreate model)
         {
-            if (!ModelState.IsValid) return View(model);
+            if (!ModelState.IsValid) 
+                return View(model);
 
             var service = CreateGlazeService();
 
             if (service.CreateGlaze(model))
             {
-                TempData["SaveResult"] = "Your glaze was created.";
+                TempData["SaveResult"] = "This glaze has been created.";
                 return RedirectToAction("Index");
             };
 

@@ -12,25 +12,25 @@ namespace AllMixedUp.Data
         [Key]
         public int FinishID { get; set; }
         public Guid OwnerId { get; set; }
-        public enum Surface
-        {
-            Opaque = 1,
-            SemiOpaque = 2,
-            SemiTransparent = 3,
-            Transparent = 4,
-            Clear = 5
-        }
         public Surface Surf { get; set; }
-        public enum Opacity
-        {
-            DeadMatte = 1,
-            Matte = 2,
-            Satin = 3,
-            SemiGloss = 4,
-            Gloss = 5,
-        }
         public Opacity Op { get; set; }
         public DateTimeOffset CreatedDate { get; set; }
         public DateTimeOffset? ModifiedDate { get; set; }
+    }
+    public enum Surface
+    {
+        Opaque = 1,
+        SemiOpaque = 2,
+        SemiTransparent = 3,
+        Transparent = 4,
+        Clear = 5
+    }
+    public enum Opacity
+    {
+        DeadMatte = 1,
+        Matte = 2,
+        Satin = 3,
+        SemiGloss = 4,
+        Gloss = 5,
     }
 }

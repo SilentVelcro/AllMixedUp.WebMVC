@@ -14,25 +14,32 @@ namespace AllMixedUp.Models
         [Display(Name = "ID")]
         public int GlazeID { get; set; }
 
-        [Display(Name = "Glaze")]
+        [Required]
+        [Display(Name = "Glaze Name")]
         public string GlazeName { get; set; }
 
-        [Display(Name = "User")]
+        [Required]
+        [Display(Name = "User ID")]
         public int UserID { get; set; }
         public virtual User User { get; set; }
 
+        [Required]
         [Display(Name = "Description")]
         public string Description { get; set; }
 
+        [Required]
         [Display(Name = "Ingredient(s)")]
-        public List<Ingredient> IngredientList { get; set; }
+        public ICollection<Ingredient> IngredientList { get; set; }
 
+        [Required]
         [Display(Name = "Food safe")]
         public bool FoodSafe { get; set; }
 
+        [Required]
         [Display(Name = "Atmosphere")]
         public FireProcess Atmosphere { get; set; }
 
+        [Required]
         [Display(Name = "Minimum Cone")]
         public MinCone MinimumCone { get; set; }
 

@@ -113,27 +113,5 @@ namespace AllMixedUp.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
-        public bool AddMaterialToIngredient(int id, AddMaterial model)
-        {
-            var materialList = new AddMaterial()
-            {
-                IngredientMaterialList = model.IngredientMaterialList
-            };
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                        .Material
-                        .Single(e => e.MaterialID == id);
-                foreach (int materialId in materialList.IngredientMaterialList)
-                {
-                    var student = ctx
-                        .Ingredient.Single(s => s.IngredientID == materialId);
-                    entity.MaterialList.Add(student);
-                }
-                return ctx.SaveChanges() > 0;
-            }
-        }
     }
 }

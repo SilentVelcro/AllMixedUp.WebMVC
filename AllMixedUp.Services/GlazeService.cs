@@ -16,37 +16,6 @@ namespace AllMixedUp.Services
             _userId = userId;
         }
 
-        //CREATE method
-        public bool CreateGlaze(GlazeCreate model)
-        {
-            var entity =
-                new Glaze()
-                {
-                    OwnerId = _userId,
-                    UserID = model.UserID,
-                    GlazeID = model.GlazeID,
-                    GlazeName = model.GlazeName,
-                    User = model.User,
-                    Description = model.Description,
-                    IngredientList = model.IngredientList,
-                    MinimumCone = model.MinimumCone,
-                    MaximumCone = model.MaximumCone,
-                    Hue = model.Hue,
-                    Atmosphere = model.Atmosphere,
-                    FinishID = model.finishID,
-                    Finish = model.Finish,
-                    FoodSafe = model.FoodSafe,
-                    CreatedDate = DateTimeOffset.Now
-                };
-
-            using (var ctx = new ApplicationDbContext())
-            {
-                ctx.Glaze.Add(entity);
-                return ctx.SaveChanges() == 1;
-            }
-        }
-
-        //ADD Method
         public IEnumerable<GlazeListItem> GetGlaze()
         {
             using (var ctx = new ApplicationDbContext())
@@ -74,6 +43,37 @@ namespace AllMixedUp.Services
                         );
 
                 return query.ToArray();
+            }
+        }
+
+
+        //CREATE method
+        public bool CreateGlaze(GlazeCreate model)
+        {
+            var entity =
+                new Glaze()
+                {
+                    OwnerId = _userId,
+                    UserID = model.UserID,
+                    GlazeID = model.GlazeID,
+                    GlazeName = model.GlazeName,
+                    User = model.User,
+                    Description = model.Description,
+                    IngredientList = model.IngredientList,
+                    MinimumCone = model.MinimumCone,
+                    MaximumCone = model.MaximumCone,
+                    Hue = model.Hue,
+                    Atmosphere = model.Atmosphere,
+                    FinishID = model.finishID,
+                    Finish = model.Finish,
+                    FoodSafe = model.FoodSafe,
+                    CreatedDate = DateTimeOffset.Now
+                };
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Glaze.Add(entity);
+                return ctx.SaveChanges() == 1;
             }
         }
 
@@ -114,7 +114,7 @@ namespace AllMixedUp.Services
                 var entity =
                     ctx
                         .Glaze
-                        .Single(e => e.UserID == model.GlazeID && e.OwnerId == _userId);
+                        .SingleOrDefault(e => e.UserID == model.GlazeID && e.OwnerId == _userId);
 
                 entity.GlazeName = model.GlazeName;
                 entity.Description = model.Description;

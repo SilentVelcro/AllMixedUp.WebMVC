@@ -24,7 +24,7 @@ namespace AllMixedUp.Models
         public string Description { get; set; }
 
         [Display(Name = "Ingredient(s)")]
-        public List<Ingredient> IngredientList { get; set; }
+        public ICollection<Ingredient> IngredientList { get; set; }
 
         [Display(Name = "Atmosphere")]
         public FireProcess Atmosphere { get; set; }

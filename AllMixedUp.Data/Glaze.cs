@@ -15,7 +15,7 @@ namespace AllMixedUp.Data
 
         public Guid OwnerId { get; set; }
 
-        public int? UserID { get; set; }
+        public int UserID { get; set; }
         [ForeignKey("UserID")]
         public virtual User User { get; set; }
 

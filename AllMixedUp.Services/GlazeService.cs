@@ -30,14 +30,13 @@ namespace AllMixedUp.Services
                                 {
                                     GlazeID = e.GlazeID,
                                     GlazeName = e.GlazeName,
-                                    UserID = e.UserID,
+                                    UserID = (int)e.UserID,
                                     Description = e.Description,
                                     IngredientList = e.IngredientList,
                                     MinCone = e.MinCone,
                                     MaxCone = e.MaxCone,
                                     MainColor = e.MainColor,
                                     Atmosphere = e.Atmosphere,
-                                    Finish = e.Finish,
                                     FoodSafe = e.FoodSafe,
                                 }
                         );
@@ -54,7 +53,6 @@ namespace AllMixedUp.Services
                 new Glaze()
                 {
                     OwnerId = _userId,
-                    UserID = model.UserID,
                     GlazeID = model.GlazeID,
                     GlazeName = model.GlazeName,
                     User = model.User,
@@ -64,8 +62,6 @@ namespace AllMixedUp.Services
                     MaxCone = model.MaxCone,
                     MainColor = model.MainColor,
                     Atmosphere = model.Atmosphere,
-                    FinishID = model.FinishID,
-                    Finish = model.Finish,
                     FoodSafe = model.FoodSafe,
                     CreatedDate = DateTimeOffset.Now
                 };
@@ -98,7 +94,6 @@ namespace AllMixedUp.Services
                         MaxCone = entity.MaxCone,
                         MainColor = entity.MainColor,
                         Atmosphere = entity.Atmosphere,
-                        Finish = entity.Finish,
                         FoodSafe = entity.FoodSafe,
                         CreatedDate = entity.CreatedDate,
                         ModifiedDate = entity.ModifiedDate
@@ -123,8 +118,9 @@ namespace AllMixedUp.Services
                 entity.MaxCone = model.MaxCone;
                 entity.MainColor = model.MainColor;
                 entity.Atmosphere = model.Atmosphere;
+                entity.Surface = model.Surface;
+                entity.Opacity = model.Opacity;
                 entity.FoodSafe = model.FoodSafe;
-                entity.FinishID = model.FinishID;
                 entity.ModifiedDate = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

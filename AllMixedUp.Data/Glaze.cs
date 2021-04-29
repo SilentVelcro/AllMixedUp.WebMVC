@@ -107,7 +107,22 @@ namespace AllMixedUp.Data
         Cone12 = 35,
         Cone13 = 36,
     }
-     
+    public enum Surface
+    {
+        Opaque = 1,
+        SemiOpaque = 2,
+        SemiTransparent = 3,
+        Transparent = 4,
+        Clear = 5
+    }
+    public enum Opacity
+    {
+        DeadMatte = 1,
+        Matte = 2,
+        Satin = 3,
+        SemiGloss = 4,
+        Gloss = 5,
+    }
     public class Glaze
     {
         [Key]
@@ -115,7 +130,7 @@ namespace AllMixedUp.Data
 
         public Guid OwnerId { get; set; }
 
-        public int UserID { get; set; }
+        public int? UserID { get; set; }
         [ForeignKey("UserID")]
         public virtual User User { get; set; }
 
@@ -133,14 +148,12 @@ namespace AllMixedUp.Data
 
        [Required]
         public bool FoodSafe { get; set; }
-
-        [ForeignKey("Finish")]
-        public int FinishID { get; set; }
-        public virtual Finish Finish { get; set; }
         public Atmosphere Atmosphere { get; set; }
         public MainColor MainColor { get; set; }
         public MinCone MinCone { get; set; }
         public MaxCone MaxCone { get; set; }
+        public Surface Surface { get; set; }
+        public Opacity Opacity { get; set; }
         public DateTimeOffset CreatedDate { get; set; }
         public DateTimeOffset? ModifiedDate { get; set; }
 

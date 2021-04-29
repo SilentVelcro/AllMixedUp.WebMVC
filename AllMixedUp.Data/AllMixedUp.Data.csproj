@@ -54,7 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Finish.cs" />
     <Compile Include="Glaze.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Ingredient.cs" />
@@ -80,6 +79,14 @@
     <Compile Include="Migrations\202104291945246_GlazeCreateUpdated.Designer.cs">
       <DependentUpon>202104291945246_GlazeCreateUpdated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104292019137_deletedFinish.cs" />
+    <Compile Include="Migrations\202104292019137_deletedFinish.Designer.cs">
+      <DependentUpon>202104292019137_deletedFinish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104292026584_FinishDeleted.cs" />
+    <Compile Include="Migrations\202104292026584_FinishDeleted.Designer.cs">
+      <DependentUpon>202104292026584_FinishDeleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
@@ -103,6 +110,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104291945246_GlazeCreateUpdated.resx">
       <DependentUpon>202104291945246_GlazeCreateUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104292019137_deletedFinish.resx">
+      <DependentUpon>202104292019137_deletedFinish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104292026584_FinishDeleted.resx">
+      <DependentUpon>202104292026584_FinishDeleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

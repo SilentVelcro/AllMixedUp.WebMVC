@@ -39,7 +39,7 @@ namespace AllMixedUp.Data
         public DbSet<User> User { get; set; }
         public DbSet<Glaze> Glaze { get; set; }
         public DbSet<Material> Material { get; set; }
-        public DbSet<Finish> Finish { get; set; }
+        //public DbSet<Finish> Finish { get; set; }
         public DbSet<Message> Message { get; set; }
         public DbSet<Ingredient> Ingredient { get; set; }
 

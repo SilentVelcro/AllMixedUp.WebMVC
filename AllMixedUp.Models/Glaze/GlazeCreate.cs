@@ -27,7 +27,7 @@ namespace AllMixedUp.Models
         [Display(Name = "Description")]
         public string Description { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Ingredient(s)")]
         public ICollection<Ingredient> IngredientList { get; set; }
 
@@ -49,9 +49,11 @@ namespace AllMixedUp.Models
         [Display(Name = "Color")]
         public MainColor MainColor { get; set; }
 
-        public int FinishID { get; set; }
-        [Display(Name = "Finish")]
-        public Finish Finish { get; set; }
+        [Display(Name = "Surface of Glaze Finish")]
+        public Surface Surface { get; set; }
+
+        [Display(Name = "Opacity of Glaze Finish")]
+        public Opacity Opacity { get; set; }
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedDate { get; set; }

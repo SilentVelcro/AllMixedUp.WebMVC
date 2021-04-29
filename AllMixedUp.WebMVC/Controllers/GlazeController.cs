@@ -70,7 +70,6 @@ namespace AllMixedUp.WebMVC.Controllers
                     Atmosphere = detail.Atmosphere,
                     MinCone = detail.MinCone,
                     MainColor = detail.MainColor,
-                    Finish = detail.Finish, 
                     FoodSafe = detail.FoodSafe,
                 };
             return View(model);

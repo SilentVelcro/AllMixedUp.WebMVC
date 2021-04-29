@@ -54,7 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FinishService.cs" />
     <Compile Include="GlazeService.cs" />
     <Compile Include="IngredientService.cs" />
     <Compile Include="MaterialService.cs" />

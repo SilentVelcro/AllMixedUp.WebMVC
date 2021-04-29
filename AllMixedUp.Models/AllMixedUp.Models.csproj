@@ -54,31 +54,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FinishCreate.cs" />
-    <Compile Include="FinishDetail.cs" />
-    <Compile Include="FinishEdit.cs" />
-    <Compile Include="FinishListItem.cs" />
-    <Compile Include="GlazeCreate.cs" />
-    <Compile Include="GlazeDetail.cs" />
-    <Compile Include="GlazeEdit.cs" />
-    <Compile Include="GlazeListItem.cs" />
-    <Compile Include="IngredientCreate.cs" />
-    <Compile Include="IngredientDetail.cs" />
-    <Compile Include="IngredientEdit.cs" />
-    <Compile Include="IngredientListItem.cs" />
-    <Compile Include="MaterialCreate.cs" />
-    <Compile Include="MaterialDetail.cs" />
-    <Compile Include="MaterialEdit.cs" />
-    <Compile Include="MaterialListItem.cs" />
-    <Compile Include="MessageCreate.cs" />
-    <Compile Include="MessageDetail.cs" />
-    <Compile Include="MessageEdit.cs" />
-    <Compile Include="MessageListItem.cs" />
+    <Compile Include="Glaze\GlazeCreate.cs" />
+    <Compile Include="Glaze\GlazeDetail.cs" />
+    <Compile Include="Glaze\GlazeEdit.cs" />
+    <Compile Include="Glaze\GlazeListItem.cs" />
+    <Compile Include="Ingredient\IngredientCreate.cs" />
+    <Compile Include="Ingredient\IngredientDetail.cs" />
+    <Compile Include="Ingredient\IngredientEdit.cs" />
+    <Compile Include="Ingredient\IngredientListItem.cs" />
+    <Compile Include="Material\MaterialCreate.cs" />
+    <Compile Include="Material\MaterialDetail.cs" />
+    <Compile Include="Material\MaterialEdit.cs" />
+    <Compile Include="Material\MaterialListItem.cs" />
+    <Compile Include="Message\MessageCreate.cs" />
+    <Compile Include="Message\MessageDetail.cs" />
+    <Compile Include="Message\MessageEdit.cs" />
+    <Compile Include="Message\MessageListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserCreate.cs" />
-    <Compile Include="UserDetail.cs" />
-    <Compile Include="UserEdit.cs" />
-    <Compile Include="UserListItem.cs" />
+    <Compile Include="User\UserCreate.cs" />
+    <Compile Include="User\UserDetail.cs" />
+    <Compile Include="User\UserEdit.cs" />
+    <Compile Include="User\UserListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -90,5 +86,6 @@
       <Name>AllMixedUp.Data</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

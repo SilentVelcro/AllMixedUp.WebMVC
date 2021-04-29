@@ -9,7 +9,7 @@ using static AllMixedUp.Data.Glaze;
 
 namespace AllMixedUp.Models
 {
-    public class GlazeEdit
+    public class GlazeListItem
     {
         [Display(Name = "ID")]
         public int GlazeID { get; set; }
@@ -38,15 +38,14 @@ namespace AllMixedUp.Models
         [Display(Name = "Color")]
         public MainColor MainColor { get; set; }
 
-        //public List<string> Ingredients { get; set; }
+        [Display(Name = "Surface of Glaze Finish")]
+        public Surface Surface { get; set; }
+
+        [Display(Name = "Opacity of Glaze Finish")]
+        public Opacity Opacity { get; set; }
 
         [Display(Name = "Food safe")]
         public bool FoodSafe { get; set; }
-
-        [Display(Name = "Finish")]
-        public int FinishID { get; set; }
-
-        public virtual Finish Finish { get; set; }
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedDate { get; set; }

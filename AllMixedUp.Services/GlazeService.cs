@@ -28,9 +28,9 @@ namespace AllMixedUp.Services
                             e =>
                                 new GlazeListItem
                                 {
+                                    OwnerId = _userId,
                                     GlazeID = e.GlazeID,
                                     GlazeName = e.GlazeName,
-                                    UserID = (int)e.UserID,
                                     Description = e.Description,
                                     IngredientList = e.IngredientList,
                                     MinCone = e.MinCone,
@@ -47,15 +47,13 @@ namespace AllMixedUp.Services
 
 
         //CREATE method
-        public bool CreateGlaze(GlazeCreate model)
+        public int CreateGlaze(GlazeCreate model)
         {
             var entity =
                 new Glaze()
                 {
                     OwnerId = _userId,
-                    GlazeID = model.GlazeID,
                     GlazeName = model.GlazeName,
-                    User = model.User,
                     Description = model.Description,
                     IngredientList = model.IngredientList,
                     MinCone = model.MinCone,
@@ -69,7 +67,11 @@ namespace AllMixedUp.Services
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Glaze.Add(entity);
-                return ctx.SaveChanges() == 1;
+                if (ctx.SaveChanges() == 1)
+                {
+                    return entity.GlazeID;
+                }
+                return -1;
             }
         }
 
@@ -87,7 +89,6 @@ namespace AllMixedUp.Services
                     {
                         GlazeID = entity.GlazeID,
                         GlazeName = entity.GlazeName,
-                        User = entity.User.LastName,
                         Description = entity.Description,
                         IngredientList = entity.IngredientList,
                         MinCone = entity.MinCone,
@@ -109,7 +110,7 @@ namespace AllMixedUp.Services
                 var entity =
                     ctx
                         .Glaze
-                        .SingleOrDefault(e => e.UserID == model.GlazeID && e.OwnerId == _userId);
+                        .SingleOrDefault(e => e.OwnerId == _userId);
 
                 entity.GlazeName = model.GlazeName;
                 entity.Description = model.Description;

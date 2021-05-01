@@ -19,11 +19,11 @@ namespace AllMixedUp.Services
         //CREATE method
         public bool CreateIngredient(IngredientCreate model)
         {
+
             var entity =
                 new Ingredient()
                 {
                     OwnerId = _userId,
-                    IngredientID = model.IngredientID,
                     MaterialID = model.MaterialID,
                     Quantity = model.Quantity,
                     CreatedDate = DateTimeOffset.Now
@@ -51,6 +51,7 @@ namespace AllMixedUp.Services
                                 {
                                     IngredientID = e.IngredientID,
                                     MaterialID = e.MaterialID,
+                                    Name = e.Material.MaterialName,
                                     Quantity = e.Quantity,
                                 }
                         );
@@ -72,10 +73,8 @@ namespace AllMixedUp.Services
                     new IngredientDetail
                     {
                         IngredientID = entity.IngredientID,
-                        MaterialID = entity.MaterialID,
+                        Name = entity.Material.MaterialName,
                         Quantity = entity.Quantity,
-                        CreatedDate = entity.CreatedDate,
-                        ModifiedDate = entity.ModifiedDate
                     };
             }
         }
@@ -110,6 +109,31 @@ namespace AllMixedUp.Services
                 ctx.Ingredient.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool AddIngredientToGlaze(int id, IngredientCreate model)
+        {
+            var newIngredient = new Ingredient()
+            {
+             OwnerId = _userId,
+             MaterialID = model.MaterialID,
+             Quantity = model.Quantity,
+             CreatedDate = DateTimeOffset.Now
+            };
+
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Ingredient.Add(newIngredient);
+
+                var entity =
+                    ctx
+                        .Glaze
+                        .Single(e => e.GlazeID == id);
+
+                entity.IngredientList.Add(newIngredient);
+                return ctx.SaveChanges() > 0;
             }
         }
     }

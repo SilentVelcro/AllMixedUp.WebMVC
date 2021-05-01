@@ -10,10 +10,10 @@ namespace AllMixedUp.Data
 {
     public class Ingredient
     {
+        public Guid OwnerId { get; set; }
+        
         [Key]
         public int IngredientID { get; set; }
-
-        public Guid OwnerId { get; set; }
 
         [ForeignKey("Material")]
         public int MaterialID { get; set; }
@@ -26,11 +26,6 @@ namespace AllMixedUp.Data
         [Required]
         public double Quantity { get; set; }
 
-        public virtual ICollection<Material> MaterialList { get; set; }
-        public Ingredient()
-        {
-            MaterialList = new HashSet<Material>();
-        }
 
         public DateTimeOffset CreatedDate { get; set; }
 

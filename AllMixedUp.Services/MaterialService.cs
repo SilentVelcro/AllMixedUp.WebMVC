@@ -22,7 +22,6 @@ namespace AllMixedUp.Services
             var entity =
                 new Material()
                 {
-                    OwnerId = _userId,
                     MaterialID = model.MaterialID,
                     MaterialName = model.MaterialName,
                     HealthHazard = model.HealthHazard,
@@ -43,8 +42,7 @@ namespace AllMixedUp.Services
             {
                 var query =
                     ctx
-                        .Material
-                        .Where(e => e.OwnerId == _userId)
+                        .Material 
                         .Select(
                             e =>
                                 new MaterialListItem

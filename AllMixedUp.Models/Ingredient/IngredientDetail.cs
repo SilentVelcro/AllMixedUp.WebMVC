@@ -13,6 +13,9 @@ namespace AllMixedUp.Models
         public int IngredientID { get; set; }
         public int MaterialID { get; set; }
 
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+
         [Display(Name = "Quantity")]
         public double Quantity { get; set; }
 

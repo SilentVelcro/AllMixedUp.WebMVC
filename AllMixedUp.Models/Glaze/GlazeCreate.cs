@@ -11,17 +11,14 @@ namespace AllMixedUp.Models
 {
     public class GlazeCreate
     {
+        public Guid OwnerId { get; set; }
+
         [Display(Name = "ID")]
         public int GlazeID { get; set; }
 
         [Required]
         [Display(Name = "Glaze Name")]
         public string GlazeName { get; set; }
-
-        [Required]
-        [Display(Name = "User ID")]
-        public int UserID { get; set; }
-        public virtual User User { get; set; }
 
         [Required]
         [Display(Name = "Description")]

@@ -22,3 +22,17 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#hero {
+    background: #00F260; /* fallback for old browsers */
+    background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.form-control{
+    width: 100%;
+}
+
+#dropdown{
+
+
+}

@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace AllMixedUp.Data
 {
-    //Enum(s)
     public enum Atmosphere
     {
         Reduction = 1,
@@ -129,10 +128,6 @@ namespace AllMixedUp.Data
         public int GlazeID { get; set; }
 
         public Guid OwnerId { get; set; }
-
-        public int? UserID { get; set; }
-        [ForeignKey("UserID")]
-        public virtual User User { get; set; }
 
         [Required]
         public string GlazeName { get; set; }

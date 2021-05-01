@@ -4,66 +4,53 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.GlazeID)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.GlazeName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UserID)
+            @Html.DisplayNameFor(model => model.MinCone)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.MaxCone)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FoodSafe)
+            @Html.DisplayNameFor(model => model.MainColor)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedDate)
+            @Html.DisplayNameFor(model => model.Atmosphere)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.GlazeID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GlazeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FoodSafe)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.GlazeID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.GlazeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.GlazeID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.GlazeName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MinCone)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaxCone)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MainColor)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Atmosphere)
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.GlazeID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.GlazeID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.GlazeID })
+    </td>
+</tr>
 }
 
 </table>

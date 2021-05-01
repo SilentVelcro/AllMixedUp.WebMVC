@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,10 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -59,33 +61,13 @@
     <Compile Include="Ingredient.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="Message.cs" />
-    <Compile Include="Migrations\202104202255195_intial.cs" />
-    <Compile Include="Migrations\202104202255195_intial.Designer.cs">
-      <DependentUpon>202104202255195_intial.cs</DependentUpon>
+    <Compile Include="Migrations\202104301719531_NewRelationship.cs" />
+    <Compile Include="Migrations\202104301719531_NewRelationship.designer.cs">
+      <DependentUpon>202104301719531_NewRelationship.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202104202312213_MessageFkFixed.cs" />
-    <Compile Include="Migrations\202104202312213_MessageFkFixed.Designer.cs">
-      <DependentUpon>202104202312213_MessageFkFixed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104272301018_ingredientListChanged.cs" />
-    <Compile Include="Migrations\202104272301018_ingredientListChanged.Designer.cs">
-      <DependentUpon>202104272301018_ingredientListChanged.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104291915327_firstEnumAddedHTML.cs" />
-    <Compile Include="Migrations\202104291915327_firstEnumAddedHTML.Designer.cs">
-      <DependentUpon>202104291915327_firstEnumAddedHTML.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104291945246_GlazeCreateUpdated.cs" />
-    <Compile Include="Migrations\202104291945246_GlazeCreateUpdated.Designer.cs">
-      <DependentUpon>202104291945246_GlazeCreateUpdated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104292019137_deletedFinish.cs" />
-    <Compile Include="Migrations\202104292019137_deletedFinish.Designer.cs">
-      <DependentUpon>202104292019137_deletedFinish.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104292026584_FinishDeleted.cs" />
-    <Compile Include="Migrations\202104292026584_FinishDeleted.Designer.cs">
-      <DependentUpon>202104292026584_FinishDeleted.cs</DependentUpon>
+    <Compile Include="Migrations\202105010102092_glszed.cs" />
+    <Compile Include="Migrations\202105010102092_glszed.Designer.cs">
+      <DependentUpon>202105010102092_glszed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,26 +78,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104202255195_intial.resx">
-      <DependentUpon>202104202255195_intial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104301719531_NewRelationship.resx">
+      <DependentUpon>202104301719531_NewRelationship.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104202312213_MessageFkFixed.resx">
-      <DependentUpon>202104202312213_MessageFkFixed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104272301018_ingredientListChanged.resx">
-      <DependentUpon>202104272301018_ingredientListChanged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104291915327_firstEnumAddedHTML.resx">
-      <DependentUpon>202104291915327_firstEnumAddedHTML.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104291945246_GlazeCreateUpdated.resx">
-      <DependentUpon>202104291945246_GlazeCreateUpdated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104292019137_deletedFinish.resx">
-      <DependentUpon>202104292019137_deletedFinish.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104292026584_FinishDeleted.resx">
-      <DependentUpon>202104292026584_FinishDeleted.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105010102092_glszed.resx">
+      <DependentUpon>202105010102092_glszed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

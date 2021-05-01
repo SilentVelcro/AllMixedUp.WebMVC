@@ -11,14 +11,13 @@ namespace AllMixedUp.Models
 {
     public class GlazeEdit
     {
+        public Guid OwnerId { get; set; }
+
         [Display(Name = "ID")]
         public int GlazeID { get; set; }
 
         [Display(Name = "Glaze")]
         public string GlazeName { get; set; }
-
-        [Display(Name = "UserID")]
-        public int UserID { get; set; }
 
         [Display(Name = "Description")]
         public string Description { get; set; }

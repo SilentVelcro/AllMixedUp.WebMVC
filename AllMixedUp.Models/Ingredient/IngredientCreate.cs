@@ -9,14 +9,13 @@ namespace AllMixedUp.Models
 {
     public class IngredientCreate
     {
-        [Display(Name = "ID")]
-        public int IngredientID { get; set; }
         public int MaterialID { get; set; }
 
         [Display(Name = "Quantity")]
         public double Quantity { get; set; }
 
-        [Display(Name = "Created")]
-        public DateTimeOffset CreatedDate { get; set; }
+        public int GlazeID { get; set; }
+
+
     }
 }

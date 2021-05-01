@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AllMixedUp.Data;
 
 namespace AllMixedUp.WebMVC.Controllers
 {
@@ -27,6 +28,7 @@ namespace AllMixedUp.WebMVC.Controllers
         {
             return View();
         }
+
 
         //CREATE POST
         [HttpPost]
@@ -127,6 +129,38 @@ namespace AllMixedUp.WebMVC.Controllers
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new IngredientService(userId);
             return service;
+        }
+
+        public ActionResult AddIngredientToList(int glazeID)
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new MaterialService(userId);
+
+
+            var model = service.GetMaterial();
+            var glaze = new IngredientCreate();
+            glaze.GlazeID = glazeID;
+
+            ViewBag.Materials = model;
+            return View(glaze);
+        }
+
+        [HttpPost]
+        public ActionResult AddIngredientToList(int id, IngredientCreate model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var service = CreateIngredientService();
+
+            if (service.AddIngredientToGlaze(id, model))
+            {
+                TempData["SaveResult"] = "Your ingredient(s) have been created.";
+                RedirectToAction("AddIngredientToList", new { glazeID = model.GlazeID });
+            }
+            ModelState.AddModelError("", "Ingredent(s) could not be created.");
+
+            return View(model);
         }
     }
 }

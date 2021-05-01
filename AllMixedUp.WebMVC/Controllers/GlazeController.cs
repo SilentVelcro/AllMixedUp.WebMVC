@@ -35,11 +35,12 @@ namespace AllMixedUp.WebMVC.Controllers
                 return View(model);
 
             var service = CreateGlazeService();
+            int createdGlaze = service.CreateGlaze(model);
 
-            if (service.CreateGlaze(model))
+            if (createdGlaze != -1)
             {
                 TempData["SaveResult"] = "This glaze has been created.";
-                return RedirectToAction("Index");
+                return RedirectToAction("AddIngredientToList", "Ingredient", new { glazeID = createdGlaze });
             };
 
             ModelState.AddModelError("", "Glaze could not be created.");

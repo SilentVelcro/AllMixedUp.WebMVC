@@ -134,14 +134,14 @@ namespace AllMixedUp.Data
 
         public string Description { get; set; }
 
+
         //Ingredient
-        public virtual ICollection<Ingredient> IngredientList { get; set; }
+        public virtual ICollection<Ingredient> ListOfIngredients { get; set; }
         public Glaze()
         {
-            IngredientList = new HashSet<Ingredient>();
+            ListOfIngredients = new HashSet<Ingredient>();
         }
 
-       [Required]
         public bool FoodSafe { get; set; }
         public Atmosphere Atmosphere { get; set; }
         public MainColor MainColor { get; set; }

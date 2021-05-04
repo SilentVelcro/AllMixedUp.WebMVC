@@ -7,19 +7,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AllMixedUp.Data;
+using AllMixedUp.Models.Ingredient;
 
 namespace AllMixedUp.WebMVC.Controllers
 {
     [Authorize]
     public class IngredientController : Controller
     {
+        private ApplicationDbContext _db = new ApplicationDbContext();
+
         // GET: Ingredient
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new IngredientService(userId);
             var model = service.GetIngredient();
-
             return View(model);
         }
 
@@ -35,18 +37,18 @@ namespace AllMixedUp.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(IngredientCreate model)
         {
-            if (!ModelState.IsValid) 
+            if (!ModelState.IsValid)
                 return View(model);
 
             var service = CreateIngredientService();
 
             if (service.CreateIngredient(model))
             {
-                TempData["SaveResult"] = "Your glaze was created.";
+                TempData["SaveResult"] = "Your Ingredient was created.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Glaze could not be created.");
+            ModelState.AddModelError("", "Ingredient could not be created.");
 
             return View(model);
         }
@@ -63,14 +65,22 @@ namespace AllMixedUp.WebMVC.Controllers
         //EDIT
         public ActionResult Edit(int id)
         {
+            var userId = Guid.Parse(User.Identity.GetUserId());
             var service = CreateIngredientService();
             var detail = service.GetIngredientById(id);
+            var serviceTwo = new MaterialService(userId);
+            ViewBag.Materials = new SelectList(serviceTwo.GetMaterial().ToList(), "MaterialID", "MaterialName");
+
             var model =
                 new IngredientEdit
                 {
                     MaterialID = detail.MaterialID,
+                    MaterialName = detail.MaterialName,
                     Quantity = detail.Quantity,
                 };
+            model.GlazeID = id;
+            model.OwnerId = userId;
+            model.MaterialID = 1;
             return View(model);
         }
 
@@ -78,16 +88,16 @@ namespace AllMixedUp.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IngredientEdit model)
         {
-            if (!ModelState.IsValid) 
+            if (!ModelState.IsValid)
                 return View(model);
+
+            var service = CreateIngredientService();
 
             if (model.IngredientID != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
-
-            var service = CreateIngredientService();
 
             if (service.UpdateIngredient(model))
             {
@@ -131,36 +141,60 @@ namespace AllMixedUp.WebMVC.Controllers
             return service;
         }
 
-        public ActionResult AddIngredientToList(int glazeID)
+        //ADD INGREDIENT TO GLAZE--------------------------------------------------------------------------------------
+
+        public ActionResult AddIngredientToList(int id)
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new MaterialService(userId);
-
-
-            var model = service.GetMaterial();
-            var glaze = new IngredientCreate();
-            glaze.GlazeID = glazeID;
-
-            ViewBag.Materials = model;
-            return View(glaze);
+            var model = new IngredientCreate();
+            model.GlazeID = id;
+            model.OwnerId = userId;
+            model.MaterialID = 1;
+            ViewBag.Materials = new SelectList(service.GetMaterial().ToList(), "MaterialID", "MaterialName");
+            return View(model);
         }
 
         [HttpPost]
+
         public ActionResult AddIngredientToList(int id, IngredientCreate model)
         {
             if (!ModelState.IsValid)
-                return View(model);
+                return View(ModelState);
 
             var service = CreateIngredientService();
 
-            if (service.AddIngredientToGlaze(id, model))
+            if (service.CreateIngredient(model))
             {
-                TempData["SaveResult"] = "Your ingredient(s) have been created.";
-                RedirectToAction("AddIngredientToList", new { glazeID = model.GlazeID });
-            }
-            ModelState.AddModelError("", "Ingredent(s) could not be created.");
+                TempData["SaveResult"] = "Your Ingredient was created.";
+                return RedirectToAction("Index");
+            };
+
+            //RUN SERVICE----------------------------------
+            //service.CreateGlazeIngredientList(id, model);
+
+            ////SUBMIT-----------------------------------------
+            //if (Request.Form["Add aother ingredient"] != null)
+            //{
+            //    _db.SaveChanges();
+
+            //    TempData["SaveResult"] = "Your ingredient(s) have been created.";
+            //    return RedirectToAction("AddIngredientToList", new { glazeID = model.GlazeIngredientList });
+
+            //}
+            ////ADD ANOTHER INGREDIENT----------------------------------
+            //if (Request.Form["AddIngredientToList"] != null)
+            //{
+            //    _db.SaveChanges();
+
+            //    TempData["SaveResult"] = "Your ingredient list has been created.";
+            //    return RedirectToAction("Index", new { glazeID = model.GlazeIngredientList });
+            //}
+
+            ModelState.AddModelError("", "Ingredients could not be created.");
 
             return View(model);
         }
+
     }
 }

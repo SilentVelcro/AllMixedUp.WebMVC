@@ -22,10 +22,8 @@ namespace AllMixedUp.Services
             var entity =
                 new Material()
                 {
-                    MaterialID = model.MaterialID,
                     MaterialName = model.MaterialName,
                     HealthHazard = model.HealthHazard,
-                    CreatedDate = DateTimeOffset.Now
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -42,7 +40,8 @@ namespace AllMixedUp.Services
             {
                 var query =
                     ctx
-                        .Material 
+                        .Material
+                        .Where(e => e.MaterialID == e.MaterialID)
                         .Select(
                             e =>
                                 new MaterialListItem
@@ -50,7 +49,6 @@ namespace AllMixedUp.Services
                                     MaterialID = e.MaterialID,
                                     MaterialName = e.MaterialName,
                                     HealthHazard = e.HealthHazard,
-                                    CreatedDate = e.CreatedDate
                                 }
                         );
 
@@ -66,14 +64,13 @@ namespace AllMixedUp.Services
                 var entity =
                     ctx
                         .Material
-                        .Single(e => e.MaterialID == id && e.OwnerId == _userId);
+                        .Single(e => e.MaterialID == id);
                 return
                     new MaterialDetail
                     {
+                        MaterialID = entity.MaterialID,
                         MaterialName = entity.MaterialName,
                         HealthHazard = entity.HealthHazard,
-                        CreatedDate = entity.CreatedDate,
-                        ModifiedDate = entity.ModifiedDate,
                     };
             }
         }
@@ -86,11 +83,10 @@ namespace AllMixedUp.Services
                 var entity =
                     ctx
                         .Material
-                        .Single(e => e.MaterialID == model.MaterialID && e.OwnerId == _userId);
+                        .Single(e => e.MaterialID == model.MaterialID);
 
                 entity.MaterialName = model.MaterialName;
                 entity.HealthHazard = model.HealthHazard;
-                entity.ModifiedDate = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
@@ -104,7 +100,7 @@ namespace AllMixedUp.Services
                 var entity =
                     ctx
                         .Material
-                        .Single(e => e.MaterialID == materialID && e.OwnerId == _userId);
+                        .Single(e => e.MaterialID == materialID);
 
                 ctx.Material.Remove(entity);
 

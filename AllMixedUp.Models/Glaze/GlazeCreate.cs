@@ -26,7 +26,7 @@ namespace AllMixedUp.Models
 
         //[Required]
         [Display(Name = "Ingredient(s)")]
-        public ICollection<Ingredient> IngredientList { get; set; }
+        public List<IngredientDetail> IngredientList { get; set; }
 
         [Required]
         [Display(Name = "Food safe")]

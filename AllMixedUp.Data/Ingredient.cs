@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace AllMixedUp.Data
 {
@@ -26,9 +27,9 @@ namespace AllMixedUp.Data
         [Required]
         public double Quantity { get; set; }
 
-
         public DateTimeOffset CreatedDate { get; set; }
 
         public DateTimeOffset? ModifiedDate { get; set; }
+
     }
 }

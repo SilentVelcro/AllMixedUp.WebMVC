@@ -16,38 +16,45 @@ namespace AllMixedUp.Services
             _userId = userId;
         }
 
-        public IEnumerable<GlazeListItem> GetGlaze()
+        public IEnumerable<GlazeListItem> GetAllGlazes()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                        .Glaze
-                        .Where(e => e.OwnerId == _userId)
+                        .Glaze.Where(e=> e.OwnerId == _userId)
                         .Select(
                             e =>
-                                new GlazeListItem
+                               new GlazeListItem
                                 {
-                                    OwnerId = _userId,
                                     GlazeID = e.GlazeID,
                                     GlazeName = e.GlazeName,
-                                    Description = e.Description,
-                                    IngredientList = e.IngredientList,
-                                    MinCone = e.MinCone,
-                                    MaxCone = e.MaxCone,
-                                    MainColor = e.MainColor,
-                                    Atmosphere = e.Atmosphere,
-                                    FoodSafe = e.FoodSafe,
                                 }
                         );
 
                 return query.ToArray();
             }
         }
+        public IEnumerable<IngredientListItem> GetAllIngredientsByGlazeID(int glazeID)
+        {
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                var foundItems =
+                    ctx.Glaze.Single(g => g.GlazeID == glazeID).ListOfIngredients
+                    .Select(e => new IngredientListItem
+                    {
+                        MaterialName = e.Material.MaterialName,
+                        Quantity = e.Quantity,
+                    }
+                     );
+                return foundItems.ToArray();
+            }
+        }
 
 
         //CREATE method
-        public int CreateGlaze(GlazeCreate model)
+        public bool CreateGlaze(GlazeCreate model)
         {
             var entity =
                 new Glaze()
@@ -55,9 +62,10 @@ namespace AllMixedUp.Services
                     OwnerId = _userId,
                     GlazeName = model.GlazeName,
                     Description = model.Description,
-                    IngredientList = model.IngredientList,
                     MinCone = model.MinCone,
                     MaxCone = model.MaxCone,
+                    Opacity = model.Opacity,
+                    Surface = model.Surface,
                     MainColor = model.MainColor,
                     Atmosphere = model.Atmosphere,
                     FoodSafe = model.FoodSafe,
@@ -67,11 +75,7 @@ namespace AllMixedUp.Services
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Glaze.Add(entity);
-                if (ctx.SaveChanges() == 1)
-                {
-                    return entity.GlazeID;
-                }
-                return -1;
+                return ctx.SaveChanges() == 1;
             }
         }
 
@@ -80,24 +84,35 @@ namespace AllMixedUp.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
-                    ctx
-                        .Glaze
-                        .Single(e => e.GlazeID == id && e.OwnerId == _userId);
+                var ingList = new List<IngredientDetail>();
+                var entity = ctx
+                                .Glaze
+                                .Single(e => e.GlazeID == id && e.OwnerId == _userId);
+                foreach (Ingredient ingredient in entity.ListOfIngredients)
+                {
+                    var ing = new IngredientDetail();
+                    ing.MaterialName = ingredient.Material.MaterialName;
+                    ing.Quantity = ingredient.Quantity;
+
+                    ingList.Add(ing);
+                }
+                //called the ing service layer - run the get ings by glaze id - going to give you a list of ings 
+                // var list of ings = service.getallingsbyglzeid
                 return
                     new GlazeDetail
                     {
                         GlazeID = entity.GlazeID,
                         GlazeName = entity.GlazeName,
                         Description = entity.Description,
-                        IngredientList = entity.IngredientList,
                         MinCone = entity.MinCone,
                         MaxCone = entity.MaxCone,
                         MainColor = entity.MainColor,
                         Atmosphere = entity.Atmosphere,
                         FoodSafe = entity.FoodSafe,
                         CreatedDate = entity.CreatedDate,
-                        ModifiedDate = entity.ModifiedDate
+                        ModifiedDate = entity.ModifiedDate,
+                        IngredientList = ingList,
+                        //IngList = thatvariableabove
                     };
             }
         }
@@ -114,7 +129,7 @@ namespace AllMixedUp.Services
 
                 entity.GlazeName = model.GlazeName;
                 entity.Description = model.Description;
-                entity.IngredientList = model.IngredientList;
+                entity.ListOfIngredients = (ICollection<Ingredient>)model.IngredientList;
                 entity.MinCone = model.MinCone;
                 entity.MaxCone = model.MaxCone;
                 entity.MainColor = model.MainColor;

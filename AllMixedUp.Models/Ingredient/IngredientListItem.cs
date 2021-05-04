@@ -11,10 +11,13 @@ namespace AllMixedUp.Models
     {
         [Display(Name = "ID")]
         public int IngredientID { get; set; }
+
+        public int GlazeID { get; set; }
+
         public int MaterialID { get; set; }
 
         [Display(Name = "Name")]
-        public string Name { get; set; }
+        public string MaterialName { get; set; }
 
         [Display(Name = "Quantity")]
         public double Quantity { get; set; }

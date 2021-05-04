@@ -17,11 +17,11 @@ namespace AllMixedUp.WebMVC.Controllers
         public ActionResult Index()
         {
             var service = CreateGlazeService();
-            var model = service.GetGlaze();
+            var model = service.GetAllGlazes();
             return View(model);
         }
 
-        //CREATE
+        //CREATE ---------------------------------------------------------------------------
         public ActionResult Create()
         {
             return View();
@@ -35,20 +35,20 @@ namespace AllMixedUp.WebMVC.Controllers
                 return View(model);
 
             var service = CreateGlazeService();
-            int createdGlaze = service.CreateGlaze(model);
+            //int createdGlaze = service.CreateGlaze(model);
 
-            if (createdGlaze != -1)
+            if (service.CreateGlaze(model))
             {
-                TempData["SaveResult"] = "This glaze has been created.";
-                return RedirectToAction("AddIngredientToList", "Ingredient", new { glazeID = createdGlaze });
+                TempData["SaveResult"] = "Your note was created.";
+                return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Glaze could not be created.");
+            ModelState.AddModelError("", "Note could not be created.");
 
             return View(model);
         }
 
-        //DETAIL
+        //DETAIL -----------------------------------------------------------------------
         public ActionResult Details(int id)
         {
             var svc = CreateGlazeService();
@@ -57,7 +57,7 @@ namespace AllMixedUp.WebMVC.Controllers
             return View(model);
         }
 
-        //EDIT
+        //EDIT --------------------------------------------------------------------------
         public ActionResult Edit(int id)
         {
             var service = CreateGlazeService();
@@ -65,6 +65,7 @@ namespace AllMixedUp.WebMVC.Controllers
             var model =
                 new GlazeEdit
                 {
+                    GlazeID = detail.GlazeID,
                     GlazeName = detail.GlazeName,
                     IngredientList = detail.IngredientList,
                     Description = detail.Description,
@@ -100,7 +101,7 @@ namespace AllMixedUp.WebMVC.Controllers
             return View(model);
         }
 
-        //DELETE
+        //DELETE ------------------------------------------------------------------
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {

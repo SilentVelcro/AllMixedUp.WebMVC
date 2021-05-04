@@ -10,8 +10,6 @@ namespace AllMixedUp.Data
 {
     public class Material
     {
-        public Guid OwnerId { get; set; }
-
         [Key]
         public int MaterialID { get; set; }
 
@@ -20,8 +18,5 @@ namespace AllMixedUp.Data
 
         [Required]
         public bool HealthHazard { get; set; }
-
-        public DateTimeOffset CreatedDate { get; set; }
-        public DateTimeOffset? ModifiedDate { get; set; }
     }
 }

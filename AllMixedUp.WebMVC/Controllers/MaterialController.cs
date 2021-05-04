@@ -32,7 +32,8 @@ namespace AllMixedUp.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(MaterialCreate model)
         {
-            if (!ModelState.IsValid) return View(model);
+            if (!ModelState.IsValid) 
+                return View(model);
 
             var service = CreateMaterialService();
 
@@ -64,6 +65,7 @@ namespace AllMixedUp.WebMVC.Controllers
             var model =
                 new MaterialEdit
                 {
+                    MaterialID = detail.MaterialID,
                     MaterialName = detail.MaterialName,
                     HealthHazard = detail.HealthHazard,
                 };

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static AllMixedUp.Data.Glaze;
+using static AllMixedUp.Data.Ingredient;
 
 namespace AllMixedUp.Models
 {
@@ -23,7 +24,7 @@ namespace AllMixedUp.Models
         public string Description { get; set; }
 
         [Display(Name = "Ingredient(s)")]
-        public ICollection<Ingredient> IngredientList { get; set; }
+        public List<IngredientDetail> IngredientList { get; set; }
 
         [Display(Name = "Atmosphere")]
         public Atmosphere Atmosphere { get; set; }

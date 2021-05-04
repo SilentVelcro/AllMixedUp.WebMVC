@@ -1,5 +1,6 @@
 ﻿using AllMixedUp.Data;
 using AllMixedUp.Models;
+using AllMixedUp.Models.Ingredient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace AllMixedUp.Services
                 new Ingredient()
                 {
                     OwnerId = _userId,
+                    GlazeID = model.GlazeID,
                     MaterialID = model.MaterialID,
                     Quantity = model.Quantity,
                     CreatedDate = DateTimeOffset.Now
@@ -35,6 +37,7 @@ namespace AllMixedUp.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
 
         //ADD Method
         public IEnumerable<IngredientListItem> GetIngredient()
@@ -50,8 +53,9 @@ namespace AllMixedUp.Services
                                 new IngredientListItem
                                 {
                                     IngredientID = e.IngredientID,
+                                    GlazeID = e.GlazeID,
                                     MaterialID = e.MaterialID,
-                                    Name = e.Material.MaterialName,
+                                    MaterialName = e.Material.MaterialName,
                                     Quantity = e.Quantity,
                                 }
                         );
@@ -60,11 +64,14 @@ namespace AllMixedUp.Services
             }
         }
 
+
         //Detail 
         public IngredientDetail GetIngredientById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
+                var ingList = new List<string>();
+
                 var entity =
                     ctx
                         .Ingredient
@@ -73,7 +80,7 @@ namespace AllMixedUp.Services
                     new IngredientDetail
                     {
                         IngredientID = entity.IngredientID,
-                        Name = entity.Material.MaterialName,
+                        MaterialName = entity.Material.MaterialName,
                         Quantity = entity.Quantity,
                     };
             }
@@ -90,7 +97,7 @@ namespace AllMixedUp.Services
                         .Single(e => e.IngredientID == model.IngredientID && e.OwnerId == _userId);
 
                 entity.Quantity = model.Quantity;
-                entity.ModifiedDate = DateTimeOffset.UtcNow;
+                entity.Material.MaterialName = model.MaterialName;
 
                 return ctx.SaveChanges() == 1;
             }
@@ -112,27 +119,26 @@ namespace AllMixedUp.Services
             }
         }
 
-        public bool AddIngredientToGlaze(int id, IngredientCreate model)
+        public bool CreateGlazeIngredientList(int id, AddIngredientToList model)
         {
-            var newIngredient = new Ingredient()
-            {
-             OwnerId = _userId,
-             MaterialID = model.MaterialID,
-             Quantity = model.Quantity,
-             CreatedDate = DateTimeOffset.Now
-            };
 
+            var ingredList = new AddIngredientToList()
+            {
+                GlazeIngredientList = model.GlazeIngredientList
+            };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Ingredient.Add(newIngredient);
-
                 var entity =
                     ctx
                         .Glaze
                         .Single(e => e.GlazeID == id);
-
-                entity.IngredientList.Add(newIngredient);
+                foreach (int ingredientId in ingredList.GlazeIngredientList)
+                {
+                    var newIngredientReadyToList = ctx
+                        .Ingredient.Single(i => i.IngredientID == ingredientId);
+                    entity.ListOfIngredients.Add(newIngredientReadyToList);
+                }
                 return ctx.SaveChanges() > 0;
             }
         }

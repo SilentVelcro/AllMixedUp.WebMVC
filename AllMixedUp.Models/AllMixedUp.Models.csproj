@@ -60,6 +60,7 @@
     <Compile Include="Glaze\GlazeDetail.cs" />
     <Compile Include="Glaze\GlazeEdit.cs" />
     <Compile Include="Glaze\GlazeListItem.cs" />
+    <Compile Include="Ingredient\AddIngredientToList.cs" />
     <Compile Include="Ingredient\IngredientCreate.cs" />
     <Compile Include="Ingredient\IngredientDetail.cs" />
     <Compile Include="Ingredient\IngredientEdit.cs" />

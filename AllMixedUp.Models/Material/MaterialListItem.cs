@@ -12,13 +12,10 @@ namespace AllMixedUp.Models
         [Display(Name = "ID")]
         public int MaterialID { get; set; }
 
-        [Display(Name = "Teacher Name")]
+        [Display(Name = "Material Name")]
         public string MaterialName { get; set; }
 
         [Display(Name = "Health Hazard")]
         public bool HealthHazard { get; set; }
-
-        [Display(Name = "Created")]
-        public DateTimeOffset CreatedDate { get; set; }
     }
 }

@@ -44,8 +44,6 @@ namespace AllMixedUp.Models
         [Display(Name = "Opacity of Glaze Finish")]
         public Opacity Opacity { get; set; }
 
-        //public List<string> Ingredients { get; set; }
-
         [Display(Name = "Food safe")]
         public bool FoodSafe { get; set; }
 

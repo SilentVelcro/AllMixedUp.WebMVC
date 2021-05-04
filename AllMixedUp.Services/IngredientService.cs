@@ -82,6 +82,11 @@ namespace AllMixedUp.Services
                         IngredientID = entity.IngredientID,
                         MaterialName = entity.Material.MaterialName,
                         Quantity = entity.Quantity,
+                        CreatedDate = entity.CreatedDate,
+                        GlazeID = entity.GlazeID,
+                        OwnerId = entity.OwnerId,
+                        MaterialID = entity.MaterialID,
+                        ModifiedDate = entity.ModifiedDate
                     };
             }
         }
@@ -94,10 +99,13 @@ namespace AllMixedUp.Services
                 var entity =
                     ctx
                         .Ingredient
-                        .Single(e => e.IngredientID == model.IngredientID && e.OwnerId == _userId);
+                        .Single(e => e.IngredientID == model.IngredientID && e.OwnerId == model.OwnerId);
 
                 entity.Quantity = model.Quantity;
                 entity.Material.MaterialName = model.MaterialName;
+                entity.MaterialID = model.MaterialID;
+                entity.GlazeID = model.GlazeID;
+                entity.ModifiedDate = DateTimeOffset.Now.Date;
 
                 return ctx.SaveChanges() == 1;
             }

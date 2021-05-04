@@ -96,8 +96,6 @@ namespace AllMixedUp.Services
 
                     ingList.Add(ing);
                 }
-                //called the ing service layer - run the get ings by glaze id - going to give you a list of ings 
-                // var list of ings = service.getallingsbyglzeid
                 return
                     new GlazeDetail
                     {
@@ -108,11 +106,12 @@ namespace AllMixedUp.Services
                         MaxCone = entity.MaxCone,
                         MainColor = entity.MainColor,
                         Atmosphere = entity.Atmosphere,
+                        Opacity = entity.Opacity,
+                        Surface = entity.Surface,
                         FoodSafe = entity.FoodSafe,
                         CreatedDate = entity.CreatedDate,
                         ModifiedDate = entity.ModifiedDate,
                         IngredientList = ingList,
-                        //IngList = thatvariableabove
                     };
             }
         }

@@ -69,18 +69,26 @@ namespace AllMixedUp.WebMVC.Controllers
             var service = CreateIngredientService();
             var detail = service.GetIngredientById(id);
             var serviceTwo = new MaterialService(userId);
-            ViewBag.Materials = new SelectList(serviceTwo.GetMaterial().ToList(), "MaterialID", "MaterialName");
 
-            var model =
-                new IngredientEdit
-                {
-                    MaterialID = detail.MaterialID,
-                    MaterialName = detail.MaterialName,
-                    Quantity = detail.Quantity,
-                };
-            model.GlazeID = id;
-            model.OwnerId = userId;
-            model.MaterialID = 1;
+
+
+
+            var model = new IngredientEdit
+            {
+                CreatedDate = detail.CreatedDate,
+                GlazeID = detail.GlazeID,
+                IngredientID = detail.IngredientID,
+                MaterialID = detail.MaterialID,
+                MaterialName = detail.MaterialName,
+                ModifiedDate = detail.ModifiedDate,
+                OwnerId = userId,
+                Quantity = detail.Quantity
+            };
+            //model.GlazeID = id;
+            //model.OwnerId = userId;
+            //model.MaterialID = 1;
+            //ViewBag.Materials = new SelectList(serviceTwo.GetMaterial().ToList(), "MaterialID", "MaterialName");
+            ViewData["Materials"] = _db.Material.Select(p => new SelectListItem { Text = p.MaterialName, Value = p.MaterialID.ToString() });
             return View(model);
         }
 
@@ -92,6 +100,7 @@ namespace AllMixedUp.WebMVC.Controllers
                 return View(model);
 
             var service = CreateIngredientService();
+            ViewData["Materials"] = _db.Material.Select(p => new SelectListItem { Text = p.MaterialName, Value = p.MaterialID.ToString() });
 
             if (model.IngredientID != id)
             {

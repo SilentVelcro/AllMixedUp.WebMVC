@@ -23,9 +23,10 @@
     </td>
 
     <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.GlazeID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.GlazeID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.GlazeID }) |
+
+        @Html.ActionLink("View Recipe", "Details", new { id = item.GlazeID }) |
+        @Html.ActionLink("Edit Recipe", "Edit", new { id = item.GlazeID }) |
+        @Html.ActionLink("Delete Recipe", "Delete", new { id = item.GlazeID }) |
         @Html.ActionLink("Add Ingredient", "AddIngredientToList", "Ingredient", new { id = item.GlazeID }, new { })
     </td>
 </tr>

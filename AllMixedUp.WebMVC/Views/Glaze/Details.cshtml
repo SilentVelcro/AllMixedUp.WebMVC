@@ -4,26 +4,25 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>
+    <dt>
+        @Html.DisplayNameFor(model => model.GlazeName)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.GlazeName)
+    </dd>
+</h2>
 
 <div>
-    <h4>GlazeDetail</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.GlazeID)
+            @Html.DisplayNameFor(model => model.MainColor)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.GlazeID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GlazeName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GlazeName)
+            @Html.DisplayFor(model => model.MainColor)
         </dd>
 
         <dt>

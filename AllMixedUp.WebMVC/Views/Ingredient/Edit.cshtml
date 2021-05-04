@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+
 
 
 @using (Html.BeginForm())
@@ -12,17 +12,20 @@
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>IngredientEdit</h4>
+    <h4>Ingredient Edit</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.IngredientID)
     @Html.HiddenFor(model => model.GlazeID)
+    @Html.HiddenFor(model => model.OwnerId)
+    @Html.HiddenFor(model => model.MaterialName)
 
     <div class="form-group">
         <p>Ingredient Name</p>
         <div class="col-md-10">
             @*@Html.DropDownListFor(model => model.MaterialID, new SelectList(ViewBag.Materials, "Value", "Text"))*@
-            @Html.DropDownListFor(model => model.MaterialName, new SelectList(Model.MaterialName, "MaterialID", "MaterialName"), "Choose a material", new { @class = "form-control form-control-sm " })
+            @*@Html.DropDownListFor(model => model.MaterialID, new SelectList(ViewBag.Materials, "Value", "Text"))*@
+            @Html.DropDownListFor(model => model.MaterialID, ViewData["Materials"] as IEnumerable<SelectListItem>)
             @Html.ValidationMessageFor(model => model.MaterialID, "", new { @class = "text-danger" })
         </div>
     </div>

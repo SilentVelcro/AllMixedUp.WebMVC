@@ -134,6 +134,10 @@
     <Compile Include="Migrations\202105040353551_EDITDONE.Designer.cs">
       <DependentUpon>202105040353551_EDITDONE.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105052232232_Fix.cs" />
+    <Compile Include="Migrations\202105052232232_Fix.Designer.cs">
+      <DependentUpon>202105052232232_Fix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
@@ -181,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105040353551_EDITDONE.resx">
       <DependentUpon>202105040353551_EDITDONE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105052232232_Fix.resx">
+      <DependentUpon>202105052232232_Fix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

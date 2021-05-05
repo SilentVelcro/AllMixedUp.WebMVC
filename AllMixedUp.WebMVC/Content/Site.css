@@ -28,11 +28,23 @@ textarea {
     background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.form-control{
+.form-control {
     width: 100%;
 }
 
-#dropdown{
-
-
+.flex {
+    display: flex !important;
 }
+
+.action-link {
+    margin-right: 15px;
+}
+
+.btn-default {
+    border-color: black;
+}
+
+/*textarea {
+    width: 700px;
+    height: 200px;
+}*/

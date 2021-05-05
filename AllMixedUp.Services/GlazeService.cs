@@ -124,8 +124,9 @@ namespace AllMixedUp.Services
                 var entity =
                     ctx
                         .Glaze
-                        .SingleOrDefault(e => e.OwnerId == _userId);
+                        .Single(e => e.GlazeID == model.GlazeID && e.OwnerId == _userId);
 
+                entity.GlazeID = model.GlazeID;
                 entity.GlazeName = model.GlazeName;
                 entity.Description = model.Description;
                 entity.ListOfIngredients = (ICollection<Ingredient>)model.IngredientList;

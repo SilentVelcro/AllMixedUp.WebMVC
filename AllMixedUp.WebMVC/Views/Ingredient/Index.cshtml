@@ -1,14 +1,12 @@
 ﻿@model IEnumerable<AllMixedUp.Models.IngredientListItem>
-
+@using AllMixedUp.Data
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -20,27 +18,32 @@
         <th>
             @Html.DisplayNameFor(model => model.Quantity)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GlazeID)
+        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaterialID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaterialName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.IngredientID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.IngredientID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.IngredientID })|
-            @Html.ActionLink("Add Ingredient", "AddIngredientToList", "Ingredient", new { id = item.GlazeID }, new { })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaterialID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaterialName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Quantity)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GlazeID)
+    </td>
+    <td>
+        @Html.ActionLink("Delete", "Delete", new { id = item.IngredientID })|
+        @Html.ActionLink("Add Ingredient", "AddIngredientToList", "Ingredient", new { id = item.GlazeID }, new { })
+    </td>
+</tr>
+    }
 
 </table>

@@ -5,14 +5,22 @@
 }
 
 <h2>
-    <dt>
-        @Html.DisplayNameFor(model => model.GlazeName)
-    </dt>
-
     <dd>
         @Html.DisplayFor(model => model.GlazeName)
     </dd>
+    @if (!Model.FoodSafe)
+    {
+        <dd>
+            Not Food-Safe
+        </dd>
+    }
+
 </h2>
+<div >
+    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "action-link" })
+    @Html.ActionLink("Edit Recipe", "Edit", new { id = Model.GlazeID }, new { @class = "action-link" })
+    @Html.ActionLink("Add Ingredient", "AddIngredientToList", "Ingredient", new { id = Model.GlazeID }, new { @class = "action-link" })
+</div>
 
 <div>
     <hr />
@@ -26,18 +34,20 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MinCone)
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            Cone
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.MinCone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MaxCone)
-        </dt>
-
-        <dd>
+            -
             @Html.DisplayFor(model => model.MaxCone)
         </dd>
 
@@ -64,33 +74,16 @@
         <dd>
             @Html.DisplayFor(model => model.Opacity)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FoodSafe)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FoodSafe)
-        </dd>
     </dl>
 </div>
 <div>
-    <table>
+    <table class="table">
         @foreach (var item in Model.IngredientList)
         {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.MaterialName)
                 </td>
-               <td> - </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Quantity)
                 </td>
@@ -100,7 +93,9 @@
         }
     </table>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.GlazeID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div>
+    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "action-link" })
+    @Html.ActionLink("Edit Recipe", "Edit", new { id = Model.GlazeID }, new { @class = "action-link" })
+    @Html.ActionLink("Add Ingredient", "AddIngredientToList", "Ingredient", new { id = Model.GlazeID }, new { @class = "action-link" })
+</div>
+

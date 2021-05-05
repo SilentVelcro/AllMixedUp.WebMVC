@@ -9,7 +9,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Edit Glaze</h4>
+        <h4>Edit Glaze Recipe</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.OwnerId)
@@ -22,88 +22,87 @@
                 @Html.EditorFor(model => model.GlazeName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.GlazeName, "", new { @class = "text-danger" })
             </div>
-        </div>
-        @*Description*@
-        <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        @*CONES*@
-        <div class="form-group" id="dropdown">
-            @Html.LabelFor(model => model.MinCone, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.MinCone, new SelectList(Enum.GetValues(typeof(MinCone))), new
-           { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MinCone, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaxCone, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.MaxCone, new SelectList(Enum.GetValues(typeof(MaxCone))), new
-           { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MaxCone, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*COLOR*@
-        <div class="form-group">
-            @Html.LabelFor(model => model.MainColor, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.MainColor, new SelectList(Enum.GetValues(typeof(MainColor))), new
-           { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MainColor, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*FIRE PROCESS*@
-        <div class="form-group">
-            @Html.LabelFor(model => model.Atmosphere, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Atmosphere, new SelectList(Enum.GetValues(typeof(Atmosphere))), new
-           { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Atmosphere, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*FINISH*@
-        <div class="form-group">
-            @Html.LabelFor(model => model.Surface, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Surface, new SelectList(Enum.GetValues(typeof(Surface))), new
-                    { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Surface, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Opacity, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Opacity, new SelectList(Enum.GetValues(typeof(Opacity))), new
-                    { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Opacity, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*FOOD SAFE*@
-        <div class="form-group">
-            @Html.LabelFor(model => model.FoodSafe, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.FoodSafe)
-                    @Html.ValidationMessageFor(model => model.FoodSafe, "", new { @class = "text-danger" })
+            @*Description*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                 </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            @*CONES*@
+            <div class="form-group" id="dropdown">
+                @Html.LabelFor(model => model.MinCone, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.MinCone, new SelectList(Enum.GetValues(typeof(MinCone))), new
+               { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MinCone, "", new { @class = "text-danger" })
+                </div>
+
+                @Html.LabelFor(model => model.MaxCone, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.MaxCone, new SelectList(Enum.GetValues(typeof(MaxCone))), new
+               { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaxCone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*COLOR*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.MainColor, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.MainColor, new SelectList(Enum.GetValues(typeof(MainColor))), new
+               { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MainColor, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*FIRE PROCESS*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.Atmosphere, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Atmosphere, new SelectList(Enum.GetValues(typeof(Atmosphere))), new
+                        { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Atmosphere, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*FINISH*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.Surface, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Surface, new SelectList(Enum.GetValues(typeof(Surface))), new
+                        { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Surface, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Opacity, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Opacity, new SelectList(Enum.GetValues(typeof(Opacity))), new
+                     { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Opacity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*FOOD SAFE*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.FoodSafe, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.FoodSafe)
+                        @Html.ValidationMessageFor(model => model.FoodSafe, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
             </div>
         </div>
     </div>
@@ -116,3 +115,4 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+

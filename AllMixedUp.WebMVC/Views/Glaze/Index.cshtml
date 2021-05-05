@@ -5,29 +5,23 @@
 }
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Glaze Recipe", "Create")
 </p>
 <table class="table">
-    <tr>
+
         <th>
             @Html.DisplayNameFor(model => model.GlazeName)
         </th>
-        <th>
-        <th></th>
-    </tr>
+
 
 @foreach (var item in Model) {
-<tr>
+<tr class="flex flex-row flex-grow-1 justify-content-between">
     <td>
-        @Html.DisplayFor(modelItem => item.GlazeName)
+        @Html.ActionLink(item.GlazeName, "Details", new { id = item.GlazeID })
     </td>
 
-    <td>
-
-        @Html.ActionLink("View Recipe", "Details", new { id = item.GlazeID }) |
-        @Html.ActionLink("Edit Recipe", "Edit", new { id = item.GlazeID }) |
-        @Html.ActionLink("Delete Recipe", "Delete", new { id = item.GlazeID }) |
-        @Html.ActionLink("Add Ingredient", "AddIngredientToList", "Ingredient", new { id = item.GlazeID }, new { })
+    <td class=" btn-default">
+        @Html.ActionLink("Delete", "Delete", new { id = item.GlazeID }, new { @class = "margin-right"})
     </td>
 </tr>
 }

@@ -60,8 +60,8 @@
     <Compile Include="Glaze\GlazeDetail.cs" />
     <Compile Include="Glaze\GlazeEdit.cs" />
     <Compile Include="Glaze\GlazeListItem.cs" />
+    <Compile Include="IngredientCreate.cs" />
     <Compile Include="Ingredient\AddIngredientToList.cs" />
-    <Compile Include="Ingredient\IngredientCreate.cs" />
     <Compile Include="Ingredient\IngredientDetail.cs" />
     <Compile Include="Ingredient\IngredientEdit.cs" />
     <Compile Include="Ingredient\IngredientListItem.cs" />
@@ -69,10 +69,6 @@
     <Compile Include="Material\MaterialDetail.cs" />
     <Compile Include="Material\MaterialEdit.cs" />
     <Compile Include="Material\MaterialListItem.cs" />
-    <Compile Include="Message\MessageCreate.cs" />
-    <Compile Include="Message\MessageDetail.cs" />
-    <Compile Include="Message\MessageEdit.cs" />
-    <Compile Include="Message\MessageListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\UserCreate.cs" />
     <Compile Include="User\UserDetail.cs" />

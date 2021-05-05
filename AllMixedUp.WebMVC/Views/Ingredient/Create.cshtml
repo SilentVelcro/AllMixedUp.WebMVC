@@ -1,18 +1,18 @@
 ﻿@model AllMixedUp.Models.IngredientCreate
-
+@using AllMixedUp.Data
 @{
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create Ingredient</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>IngredientCreate</h4>
+
+<div class="form-horizontal">
+        <h4>Ingredient Create</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

@@ -1,11 +1,11 @@
-﻿@model AllMixedUp.Models.IngredientCreate
+﻿@model AllMixedUp.Models.Ingredient.IngredientCreate
 @using AllMixedUp.Data
 @{
     ViewBag.Title = "AddIngredientToList";
     
 }
 
-<h2>Add Ingredient To List</h2>
+<h2>Add Ingredient To Recipe</h2>
 
 @using (Html.BeginForm())
 {
@@ -19,7 +19,7 @@
     <div class="form-group">
             <p>Ingredient Name</p>
         <div class="col-md-10">
-            @Html.DropDownListFor(model => model.MaterialID, new SelectList(ViewBag.Materials, "Value", "Text"))
+            @Html.DropDownListFor(model => model.MaterialID, new SelectList(ViewBag.Materials, "Value", "Text"), new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.MaterialID, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -27,7 +27,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } } )
             @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
         </div>
     </div>

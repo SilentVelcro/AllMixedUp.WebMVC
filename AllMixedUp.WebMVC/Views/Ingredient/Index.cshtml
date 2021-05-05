@@ -4,11 +4,8 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Ingredient Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -38,7 +35,7 @@
             @Html.ActionLink("Edit", "Edit", new { id = item.IngredientID }) |
             @Html.ActionLink("Details", "Details", new { id = item.IngredientID }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.IngredientID })|
-            @Html.ActionLink("Add Ingredient", "AddIngredientToList", "Ingredient", new { id = item.GlazeID }, new { })
+            @Html.ActionLink("Add Another Ingredient", "AddIngredientToList", "Ingredient", new { id = item.GlazeID }, new { })
         </td>
     </tr>
 }

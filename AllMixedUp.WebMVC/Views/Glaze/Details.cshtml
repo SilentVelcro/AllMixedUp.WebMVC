@@ -9,12 +9,14 @@
     <dd>
         <h1>**NOT FOOD SAFE**</h1>
     </dd>
+}
+else
+{
     <h2>
         <dd>
             @Html.DisplayFor(model => model.GlazeName)
         </dd>
     </h2>
-
 }
 <dd>
     @Html.ActionLink("Edit", "Edit", new { id = Model.GlazeID }) |
@@ -42,7 +44,7 @@
         <dd>
             @Html.DisplayFor(model => model.Description)
         </dd>
-            Cone
+        Cone
         </dt>
 
         <dd>
@@ -78,7 +80,7 @@
 
         <dt>
             @Html.DisplayNameFor(model => model.FoodSafe)
-    <table class="table">
+            <table class="table">
 
         <dd>
             @Html.DisplayFor(model => model.FoodSafe)
@@ -87,20 +89,38 @@
 </div>
 <div>
     <table class="table">
-        @foreach (var item in Model.IngredientList)
-        {
+        <thead class="thead-light">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MaterialName)
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.GlazeID }) |
-    @Html.ActionLink("Add Ingredient", "AddIngredientToList", "Ingredient", new { id = Model.GlazeID }, new { })
-</p>
+                <th>
+                    Material Name
+                </th>
+                <th>
+                    Quantity
+                </th>
             </tr>
-        }
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model.IngredientList)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaterialName)
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.GlazeID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Add Ingredient", "AddIngredientToList", "Ingredient", new { id = Model.GlazeID }, new { })
+
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.GlazeID }) |
+        @Html.ActionLink("Back to List", "Index")*@
 </p>

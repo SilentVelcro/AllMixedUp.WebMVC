@@ -31,6 +31,7 @@ namespace AllMixedUp.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(GlazeCreate model)
         {
+            model.CreatedDate = DateTimeOffset.Now;
             if (!ModelState.IsValid) 
                 return View(model);
 

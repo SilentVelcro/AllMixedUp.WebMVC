@@ -4,7 +4,8 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Ingredient Index</h2>
+<h2>Index</h2>
+
 
 <table class="table">
     <tr>
@@ -25,25 +26,25 @@
 
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.MaterialID)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.MaterialName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Quantity)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.GlazeID)
-    </td>
-    <td>
-        @Html.ActionLink("Delete", "Delete", new { id = item.IngredientID })|
-        @Html.ActionLink("Add Ingredient", "AddIngredientToList", "Ingredient", new { id = item.GlazeID }, new { })
-    </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaterialID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaterialName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GlazeID)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.IngredientID })|
+                @Html.ActionLink("Add Ingredient", "AddIngredientToList", "Ingredient", new { id = item.GlazeID }, new { })
+            </td>
 
-</tr>
+        </tr>
     }
 
 </table>

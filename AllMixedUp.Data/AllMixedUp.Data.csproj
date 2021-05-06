@@ -81,22 +81,12 @@
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="Material.cs" />
-    <Compile Include="Migrations\202105060353255_InitialMigrations.cs" />
-    <Compile Include="Migrations\202105060353255_InitialMigrations.Designer.cs">
-      <DependentUpon>202105060353255_InitialMigrations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105060353255_InitialMigrations.resx">
-      <DependentUpon>202105060353255_InitialMigrations.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

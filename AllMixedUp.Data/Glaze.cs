@@ -108,19 +108,20 @@ namespace AllMixedUp.Data
     }
     public enum Surface
     {
-        Opaque = 1,
-        SemiOpaque = 2,
-        SemiTransparent = 3,
-        Transparent = 4,
-        Clear = 5
-    }
-    public enum Opacity
-    {
         DeadMatte = 1,
         Matte = 2,
         Satin = 3,
         SemiGloss = 4,
         Gloss = 5,
+        SemiMatte = 6,
+    }
+    public enum Opacity
+    {
+        Opaque = 1,
+        SemiOpaque = 2,
+        SemiTransparent = 3,
+        Transparent = 4,
+        Clear = 5
     }
     public class Glaze
     {

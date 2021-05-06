@@ -4,20 +4,22 @@
     ViewBag.Title = "Details";
 }
 
-<h2>
+@if (!Model.FoodSafe)
+{
     <dd>
-        @Html.DisplayFor(model => model.GlazeName)
+        <h1>**NOT FOOD SAFE**</h1>
     </dd>
-</h2>
-@if (!Model.FoodSafe) { 
-    <dd>
-        NOT FOOD SAFE
-    </dd>
-    }
-    <dd>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.GlazeID }) |
-        @Html.ActionLink("Add Ingredient", "AddIngredientToList", "Ingredient", new { id = Model.GlazeID }, new { })
-    </dd>
+    <h2>
+        <dd>
+            @Html.DisplayFor(model => model.GlazeName)
+        </dd>
+    </h2>
+
+}
+<dd>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GlazeID }) |
+    @Html.ActionLink("Add Ingredient", "AddIngredientToList", "Ingredient", new { id = Model.GlazeID }, new { })
+</dd>
 
 
 <div>

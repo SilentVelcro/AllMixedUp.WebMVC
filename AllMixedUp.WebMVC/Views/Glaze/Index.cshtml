@@ -8,17 +8,20 @@
     @Html.ActionLink("Create New Glaze Recipe", "Create")
 </p>
 <table class="table">
-
+    <tr>
         <th>
             @Html.DisplayNameFor(model => model.GlazeName)
         </th>
 
+    </tr>
 
-@foreach (var item in Model) {
-<tr class="flex flex-row flex-grow-1 justify-content-between">
-    <td>
-        @Html.ActionLink(item.GlazeName, "Details", new { id = item.GlazeID })
-    </td>
+
+    @foreach (var item in Model)
+    {
+        <tr class="flex flex-row flex-grow-1 justify-content-between">
+            <td>
+                @Html.ActionLink(item.GlazeName, "Details", new { id = item.GlazeID })
+            </td>
 
     <td class=" btn-default">
         @Html.ActionLink("Delete", "Delete", new { id = item.GlazeID }, new { @class = "margin-right"})
@@ -27,3 +30,4 @@
 }
 
 </table>
+

@@ -133,13 +133,13 @@
     <Compile Include="Migrations\202105040353551_EDITDONE.Designer.cs">
       <DependentUpon>202105040353551_EDITDONE.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105051839598_CSS.cs" />
-    <Compile Include="Migrations\202105051839598_CSS.Designer.cs">
-      <DependentUpon>202105051839598_CSS.cs</DependentUpon>
+    <Compile Include="Migrations\202105052232232_Fix.cs" />
+    <Compile Include="Migrations\202105052232232_Fix.Designer.cs">
+      <DependentUpon>202105052232232_Fix.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105052206092_IngCreateMessedUP.cs" />
-    <Compile Include="Migrations\202105052206092_IngCreateMessedUP.Designer.cs">
-      <DependentUpon>202105052206092_IngCreateMessedUP.cs</DependentUpon>
+    <Compile Include="Migrations\202105052353535_Final.cs" />
+    <Compile Include="Migrations\202105052353535_Final.Designer.cs">
+      <DependentUpon>202105052353535_Final.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -194,6 +194,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105052206092_IngCreateMessedUP.resx">
       <DependentUpon>202105052206092_IngCreateMessedUP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105052232232_Fix.resx">
+      <DependentUpon>202105052232232_Fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105052353535_Final.resx">
+      <DependentUpon>202105052353535_Final.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -6,9 +6,10 @@
 
 @if (!Model.FoodSafe)
 {
-    <dd>
-        <h1>**NOT FOOD SAFE**</h1>
-    </dd>
+<dd>
+    <h2>**NOT FOOD SAFE**</h2>
+    @Html.DisplayFor(model => model.GlazeName)
+</dd>
 }
 else
 {

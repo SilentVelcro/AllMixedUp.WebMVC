@@ -13,8 +13,8 @@ namespace AllMixedUp.Models
     {
         public Guid OwnerId { get; set; }
 
-        [Display(Name = "ID")]
-        public int GlazeID { get; set; }
+        //[Display(Name = "ID")]
+        //public int GlazeID { get; set; }
 
         [Required]
         [Display(Name = "Glaze Name")]
@@ -26,7 +26,7 @@ namespace AllMixedUp.Models
 
         //[Required]
         [Display(Name = "Ingredient(s)")]
-        public List<IngredientDetail> IngredientList { get; set; }
+        public List<IngredientDetail> IngredientList { get; set; } = new List<IngredientDetail>();
 
         [Required]
         [Display(Name = "Food safe")]

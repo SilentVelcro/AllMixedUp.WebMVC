@@ -43,7 +43,11 @@
         @Html.ActionLink("Delete", "Delete", new { id = item.IngredientID })|
         @Html.ActionLink("Add Ingredient", "AddIngredientToList", "Ingredient", new { id = item.GlazeID }, new { })
     </td>
+
 </tr>
     }
 
 </table>
+<div>
+    @Html.ActionLink("Back to List", "Index", "Glaze")
+</div>

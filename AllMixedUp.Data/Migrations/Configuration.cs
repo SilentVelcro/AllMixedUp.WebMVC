@@ -10,6 +10,7 @@ namespace AllMixedUp.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "AllMixedUp.Data.ApplicationDbContext";
         }
 
         protected override void Seed(AllMixedUp.Data.ApplicationDbContext context)

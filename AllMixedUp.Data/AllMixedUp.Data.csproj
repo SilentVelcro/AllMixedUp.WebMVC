@@ -81,65 +81,9 @@
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="Material.cs" />
-    <Compile Include="Migrations\202104301719531_NewRelationship.cs" />
-    <Compile Include="Migrations\202104301719531_NewRelationship.designer.cs">
-      <DependentUpon>202104301719531_NewRelationship.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105010102092_glszed.cs" />
-    <Compile Include="Migrations\202105010102092_glszed.Designer.cs">
-      <DependentUpon>202105010102092_glszed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105011636590_MaterialLayer.cs" />
-    <Compile Include="Migrations\202105011636590_MaterialLayer.Designer.cs">
-      <DependentUpon>202105011636590_MaterialLayer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105011701129_MateriaDetail.cs" />
-    <Compile Include="Migrations\202105011701129_MateriaDetail.Designer.cs">
-      <DependentUpon>202105011701129_MateriaDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105011751266_MaterilOWNERID.cs" />
-    <Compile Include="Migrations\202105011751266_MaterilOWNERID.Designer.cs">
-      <DependentUpon>202105011751266_MaterilOWNERID.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105011823431_MaterialID.cs" />
-    <Compile Include="Migrations\202105011823431_MaterialID.Designer.cs">
-      <DependentUpon>202105011823431_MaterialID.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105021547416_SelectListTry.cs" />
-    <Compile Include="Migrations\202105021547416_SelectListTry.Designer.cs">
-      <DependentUpon>202105021547416_SelectListTry.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105021935405_IngredientData.cs" />
-    <Compile Include="Migrations\202105021935405_IngredientData.Designer.cs">
-      <DependentUpon>202105021935405_IngredientData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105022221271_AllmessedUP.cs" />
-    <Compile Include="Migrations\202105022221271_AllmessedUP.Designer.cs">
-      <DependentUpon>202105022221271_AllmessedUP.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105032031029_GlazeIngredient.cs" />
-    <Compile Include="Migrations\202105032031029_GlazeIngredient.Designer.cs">
-      <DependentUpon>202105032031029_GlazeIngredient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105032253498_GlazeObDel.cs" />
-    <Compile Include="Migrations\202105032253498_GlazeObDel.Designer.cs">
-      <DependentUpon>202105032253498_GlazeObDel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105040326085_INGREDIENTDATALAYEROWERNERID.cs" />
-    <Compile Include="Migrations\202105040326085_INGREDIENTDATALAYEROWERNERID.Designer.cs">
-      <DependentUpon>202105040326085_INGREDIENTDATALAYEROWERNERID.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105040353551_EDITDONE.cs" />
-    <Compile Include="Migrations\202105040353551_EDITDONE.Designer.cs">
-      <DependentUpon>202105040353551_EDITDONE.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105052232232_Fix.cs" />
-    <Compile Include="Migrations\202105052232232_Fix.Designer.cs">
-      <DependentUpon>202105052232232_Fix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105052353535_Final.cs" />
-    <Compile Include="Migrations\202105052353535_Final.Designer.cs">
-      <DependentUpon>202105052353535_Final.cs</DependentUpon>
+    <Compile Include="Migrations\202105060353255_InitialMigrations.cs" />
+    <Compile Include="Migrations\202105060353255_InitialMigrations.Designer.cs">
+      <DependentUpon>202105060353255_InitialMigrations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -150,56 +94,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104301719531_NewRelationship.resx">
-      <DependentUpon>202104301719531_NewRelationship.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105010102092_glszed.resx">
-      <DependentUpon>202105010102092_glszed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105011636590_MaterialLayer.resx">
-      <DependentUpon>202105011636590_MaterialLayer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105011701129_MateriaDetail.resx">
-      <DependentUpon>202105011701129_MateriaDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105011751266_MaterilOWNERID.resx">
-      <DependentUpon>202105011751266_MaterilOWNERID.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105011823431_MaterialID.resx">
-      <DependentUpon>202105011823431_MaterialID.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105021547416_SelectListTry.resx">
-      <DependentUpon>202105021547416_SelectListTry.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105021935405_IngredientData.resx">
-      <DependentUpon>202105021935405_IngredientData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105022221271_AllmessedUP.resx">
-      <DependentUpon>202105022221271_AllmessedUP.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105032031029_GlazeIngredient.resx">
-      <DependentUpon>202105032031029_GlazeIngredient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105032253498_GlazeObDel.resx">
-      <DependentUpon>202105032253498_GlazeObDel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105040326085_INGREDIENTDATALAYEROWERNERID.resx">
-      <DependentUpon>202105040326085_INGREDIENTDATALAYEROWERNERID.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105040353551_EDITDONE.resx">
-      <DependentUpon>202105040353551_EDITDONE.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105051839598_CSS.resx">
-      <DependentUpon>202105051839598_CSS.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105052206092_IngCreateMessedUP.resx">
-      <DependentUpon>202105052206092_IngCreateMessedUP.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105052232232_Fix.resx">
-      <DependentUpon>202105052232232_Fix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105052353535_Final.resx">
-      <DependentUpon>202105052353535_Final.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105060353255_InitialMigrations.resx">
+      <DependentUpon>202105060353255_InitialMigrations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
